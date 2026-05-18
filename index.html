@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adhish Nanda — Data Scientist & ML Engineer</title>
+<meta name="description" content="Adhish Nanda — MSc Data Science, Berlin. 2.5+ years building ETL pipelines, ML systems, and BI dashboards.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+--bg:#080809;
+--s1:#0f0f11;
+--s2:#161618;
+--s3:#1e1e22;
+--bd:#252528;
+--bd2:#333338;
+--bd3:#444449;
+--tx:#ededf0;
+--tx2:#a0a0aa;
+--tx3:#606068;
+--accent:#bef264;
+--accent-dim:rgba(190,242,100,.08);
+--accent2:#818cf8;
+--accent3:#34d399;
+--accent4:#fb923c;
+--mono:'DM Mono',monospace;
+--serif:'Fraunces',serif;
+--sans:'DM Sans',sans-serif;
+--ease:cubic-bezier(.16,1,.3,1);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--bg);color:var(--tx);font-family:var(--sans);overflow-x:hidden;line-height:1.6}
+::selection{background:var(--accent);color:#000}
+a{color:inherit;text-decoration:none}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--bd3)}
+
+/* CURSOR */
+#cur{width:8px;height:8px;background:var(--accent);border-radius:50%;position:fixed;top:-40px;left:-40px;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s}
+#cur-ring{width:32px;height:32px;border:1px solid rgba(190,242,100,.3);border-radius:50%;position:fixed;top:-40px;left:-40px;pointer-events:none;z-index:9998;transform:translate(-50%,-50%)}
+
+/* NAV */
+nav{position:fixed;inset:0 0 auto;z-index:200;padding:1.1rem 2.5rem;display:flex;align-items:center;justify-content:space-between;transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
+nav.stuck{background:rgba(8,8,9,.9);backdrop-filter:blur(20px);border-color:var(--bd)}
+.nav-logo{font-family:var(--mono);font-size:.78rem;color:var(--accent);letter-spacing:.16em;text-transform:uppercase}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-family:var(--mono);font-size:.65rem;color:var(--tx3);letter-spacing:.1em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--accent)}
+.nav-cta{font-family:var(--mono);font-size:.65rem;background:var(--accent);color:#000;padding:.42rem 1rem;letter-spacing:.08em;text-transform:uppercase;font-weight:500;transition:opacity .2s}
+.nav-cta:hover{opacity:.85}
+
+/* HERO */
+#hero{min-height:100svh;display:grid;grid-template-rows:1fr auto;padding:0 2.5rem;position:relative;overflow:hidden}
+.hero-bg-grid{position:absolute;inset:0;background-image:linear-gradient(var(--bd) 1px,transparent 1px),linear-gradient(90deg,var(--bd) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 75% 65% at 50% 40%,#000 20%,transparent 100%);opacity:.45}
+.hero-glow{position:absolute;width:800px;height:600px;background:radial-gradient(ellipse,rgba(190,242,100,.05) 0%,transparent 68%);top:30%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.hero-main{display:flex;flex-direction:column;justify-content:center;padding:8rem 0 3rem;position:relative;z-index:1}
+.hero-eyebrow{display:flex;align-items:center;gap:.75rem;margin-bottom:1.75rem;flex-wrap:wrap;gap:.5rem}
+.eyebrow-tag{font-family:var(--mono);font-size:.62rem;color:var(--accent);letter-spacing:.18em;text-transform:uppercase;display:flex;align-items:center;gap:.6rem}
+.eyebrow-tag::before{content:'';width:24px;height:1px;background:var(--accent)}
+.status-badge{display:inline-flex;align-items:center;gap:.35rem;font-family:var(--mono);font-size:.6rem;color:var(--accent3);background:rgba(52,211,153,.07);border:1px solid rgba(52,211,153,.18);padding:.28rem .7rem;letter-spacing:.08em;text-transform:uppercase}
+.sdot{width:5px;height:5px;border-radius:50%;background:var(--accent3);animation:sdot 2s ease-in-out infinite}
+@keyframes sdot{0%,100%{opacity:1}50%{opacity:.3}}
+h1{font-family:var(--serif);font-size:clamp(4rem,10vw,9.5rem);font-weight:900;line-height:.88;letter-spacing:-.03em;margin-bottom:2.5rem}
+h1 .l1{display:block}
+h1 .l2{display:block;font-style:italic;color:var(--accent);font-weight:700}
+.hero-desc{font-family:var(--mono);font-size:.82rem;color:var(--tx2);max-width:460px;line-height:1.9;margin-bottom:2.25rem}
+.hero-chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:2.75rem}
+.chip{font-family:var(--mono);font-size:.6rem;color:var(--tx3);border:1px solid var(--bd2);padding:.26rem .65rem;letter-spacing:.06em;transition:border-color .2s,color .2s}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+.hero-ctas{display:flex;gap:.85rem;flex-wrap:wrap}
+.btn-p{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--mono);font-size:.7rem;background:var(--accent);color:#000;padding:.65rem 1.4rem;letter-spacing:.08em;font-weight:500;transition:opacity .2s,transform .15s}
+.btn-p:hover{opacity:.9;transform:translateY(-1px)}
+.btn-g{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--mono);font-size:.7rem;color:var(--tx2);border:1px solid var(--bd2);padding:.65rem 1.4rem;letter-spacing:.08em;transition:border-color .2s,color .2s}
+.btn-g:hover{border-color:var(--accent);color:var(--accent)}
+.hero-foot{position:relative;z-index:1;padding-bottom:2.5rem;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1.5rem}
+.hero-stats{display:flex;gap:3.5rem;flex-wrap:wrap}
+.stat .n{font-family:var(--serif);font-size:2.4rem;font-weight:700;line-height:1}
+.stat .l{font-family:var(--mono);font-size:.58rem;color:var(--tx3);letter-spacing:.12em;text-transform:uppercase;margin-top:.2rem}
+.scroll-hint{font-family:var(--mono);font-size:.58rem;color:var(--tx3);letter-spacing:.14em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:.5rem}
+.scroll-line{width:1px;height:44px;background:linear-gradient(var(--tx3),transparent)}
+
+/* SECTION */
+.sec{padding:6rem 2.5rem;max-width:1200px;margin:0 auto}
+.sec-full{padding:6rem 2.5rem}
+.sec-label{display:flex;align-items:center;gap:.6rem;font-family:var(--mono);font-size:.6rem;color:var(--accent);letter-spacing:.2em;text-transform:uppercase;margin-bottom:1.75rem}
+.sec-label::before{content:'';width:18px;height:1px;background:var(--accent)}
+.sec-title{font-family:var(--serif);font-size:clamp(2rem,5vw,3.75rem);font-weight:900;line-height:.95;letter-spacing:-.025em;margin-bottom:.5rem}
+.sec-title em{font-style:italic;color:var(--accent);font-weight:700}
+
+/* BORDERS */
+.border-top{border-top:1px solid var(--bd)}
+.bg-s1{background:var(--s1)}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4.5rem;align-items:start}
+.about-copy p{color:var(--tx2);font-size:.97rem;line-height:1.9;margin-bottom:1.1rem}
+.about-copy strong{color:var(--tx)}
+.exp-list{margin-top:2.25rem}
+.exp-row{display:grid;grid-template-columns:108px 1fr;gap:1.1rem;padding:1.1rem 0;border-bottom:1px solid var(--bd)}
+.exp-row:last-child{border-bottom:none}
+.exp-date{font-family:var(--mono);font-size:.6rem;color:var(--tx3);padding-top:.18rem;line-height:1.6}
+.exp-role{font-weight:500;font-size:.88rem;margin-bottom:.15rem}
+.exp-co{font-family:var(--mono);font-size:.65rem;color:var(--accent3);margin-bottom:.35rem;letter-spacing:.04em}
+.exp-desc{font-size:.78rem;color:var(--tx2);line-height:1.75}
+.about-right{display:flex;flex-direction:column;gap:1.1rem}
+.term-box{background:var(--s2);border:1px solid var(--bd2);overflow:hidden}
+.term-top{background:var(--s3);padding:.5rem .9rem;display:flex;align-items:center;gap:.4rem}
+.dot{width:8px;height:8px;border-radius:50%}
+.dot.r{background:#ff5f57}.dot.y{background:#ffbd2e}.dot.g{background:#28c840}
+.term-ttl{font-family:var(--mono);font-size:.6rem;color:var(--tx3);margin-left:.5rem;letter-spacing:.05em}
+.term-body{padding:1rem 1.1rem;font-family:var(--mono);font-size:.71rem;line-height:2.1}
+.tc{color:var(--accent)}.tm{color:var(--tx2)}.tv{color:var(--accent3)}.ts{color:var(--accent4)}.tk{color:var(--accent2)}
+.contact-box{background:var(--s2);border:1px solid var(--bd2);padding:1.35rem}
+.contact-box-title{font-family:var(--mono);font-size:.58rem;color:var(--tx3);letter-spacing:.14em;text-transform:uppercase;margin-bottom:.85rem;padding-bottom:.65rem;border-bottom:1px solid var(--bd)}
+.crow{display:flex;align-items:center;gap:.55rem;font-family:var(--mono);font-size:.7rem;color:var(--tx2);padding:.35rem 0;transition:color .2s}
+.crow:hover{color:var(--accent)}
+.crow svg{opacity:.55;flex-shrink:0}
+
+/* PROJECTS */
+.proj-hdr{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;margin-bottom:2.75rem;max-width:1200px;margin-left:auto;margin-right:auto}
+.ftabs{display:flex;gap:.35rem;flex-wrap:wrap}
+.ftab{font-family:var(--mono);font-size:.6rem;border:1px solid var(--bd2);background:none;color:var(--tx3);padding:.32rem .8rem;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .2s}
+.ftab:hover,.ftab.on{border-color:var(--accent);color:var(--accent);background:var(--accent-dim)}
+.pgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--bd);max-width:1200px;margin:0 auto}
+.pcard{background:var(--s1);padding:2.1rem;position:relative;overflow:hidden;transition:background .25s}
+.pcard::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--accent-dim) 0%,transparent 55%);opacity:0;transition:opacity .4s;pointer-events:none}
+.pcard:hover{background:var(--s2)}
+.pcard:hover::before{opacity:1}
+.pcard.s2{grid-column:span 2}
+.ptag{font-family:var(--mono);font-size:.58rem;color:var(--accent);letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:.75rem}
+.pnum{font-family:var(--mono);font-size:.58rem;color:var(--tx3);position:absolute;top:2.1rem;right:2.1rem}
+.ptitle{font-family:var(--serif);font-size:1.35rem;font-weight:700;line-height:1.15;margin-bottom:.55rem;color:var(--tx)}
+.pcard.s2 .ptitle{font-size:1.95rem}
+.pdesc{font-size:.78rem;color:var(--tx2);line-height:1.82;margin-bottom:1.1rem;max-width:480px}
+.pstack{display:flex;flex-wrap:wrap;gap:.3rem;margin-bottom:1.35rem}
+.stk{font-family:var(--mono);font-size:.58rem;border:1px solid var(--bd2);color:var(--tx3);padding:.18rem .5rem}
+.plnks{display:flex;gap:.75rem}
+.plnk{font-family:var(--mono);font-size:.65rem;color:var(--tx3);display:flex;align-items:center;gap:.3rem;transition:color .2s}
+.plnk:hover{color:var(--accent)}
+.plnk svg{width:10px;height:10px}
+.phi-row{display:flex;gap:1.75rem;padding-top:1.1rem;margin-top:1.1rem;border-top:1px solid var(--bd);flex-wrap:wrap}
+.phi .hv{font-family:var(--serif);font-size:1.4rem;font-weight:700;color:var(--accent);line-height:1}
+.phi .hl{font-family:var(--mono);font-size:.56rem;color:var(--tx3);letter-spacing:.1em;text-transform:uppercase;margin-top:.18rem}
+.more-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--bd);max-width:1200px;margin:1px auto 0}
+.mini{background:var(--s1);padding:1.35rem;transition:background .2s}
+.mini:hover{background:var(--s2)}
+.mini-name{font-family:var(--mono);font-size:.7rem;color:var(--tx);margin-bottom:.35rem;font-weight:500}
+.mini-desc{font-size:.73rem;color:var(--tx3);line-height:1.65;margin-bottom:.75rem}
+.mini-tag{font-family:var(--mono);font-size:.56rem;color:var(--tx3);border:1px solid var(--bd2);display:inline-block;padding:.13rem .42rem}
+.mini-lnk{font-family:var(--mono);font-size:.58rem;color:var(--tx3);display:flex;align-items:center;gap:.3rem;margin-top:.65rem;transition:color .2s}
+.mini:hover .mini-lnk{color:var(--accent)}
+.all-repos{background:var(--s1);padding:1.35rem;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:.75rem;transition:background .2s}
+.all-repos:hover{background:var(--s2)}
+.all-repos p{font-family:var(--mono);font-size:.6rem;color:var(--tx3);letter-spacing:.1em;text-transform:uppercase}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:260px 1fr;gap:4.5rem;align-items:start;margin-top:2.75rem}
+.sk-sticky{position:sticky;top:6.5rem}
+.sk-intro{color:var(--tx2);font-size:.9rem;line-height:1.85;margin-top:.65rem}
+.sg{margin-bottom:1.85rem}
+.sg-title{font-family:var(--mono);font-size:.58rem;color:var(--tx3);letter-spacing:.16em;text-transform:uppercase;margin-bottom:.75rem;padding-bottom:.6rem;border-bottom:1px solid var(--bd)}
+.pills{display:flex;flex-wrap:wrap;gap:.35rem}
+.pill{font-family:var(--mono);font-size:.65rem;border:1px solid var(--bd2);color:var(--tx2);padding:.28rem .68rem;transition:all .2s;cursor:default}
+.pill:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-dim)}
+.pill.core{border-color:rgba(190,242,100,.22);color:var(--tx)}
+.pill.p2{border-color:rgba(129,140,248,.22);color:var(--accent2)}
+.pill.p3{border-color:rgba(52,211,153,.22);color:var(--accent3)}
+
+/* PUBS */
+.pub-list{margin-top:.25rem}
+.pub-row{display:grid;grid-template-columns:52px 1fr auto;gap:1.1rem;padding:1.5rem 0;border-bottom:1px solid var(--bd);align-items:start}
+.pub-row:last-child{border-bottom:none}
+.pub-yr{font-family:var(--mono);font-size:.6rem;color:var(--tx3);padding-top:.18rem}
+.pub-ttl{font-size:.88rem;font-weight:500;color:var(--tx);margin-bottom:.28rem;line-height:1.45}
+.pub-pub{font-family:var(--mono);font-size:.62rem;color:var(--accent2)}
+.pub-lnk{font-family:var(--mono);font-size:.62rem;color:var(--tx3);display:flex;align-items:center;gap:.28rem;transition:color .2s;align-self:center;white-space:nowrap}
+.pub-lnk:hover{color:var(--accent)}
+
+/* EDU */
+.edu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--bd);margin-top:.75rem}
+.edu-card{background:var(--bg);padding:1.85rem;transition:background .25s}
+.edu-card:hover{background:var(--s1)}
+.edu-dates{font-family:var(--mono);font-size:.58rem;color:var(--tx3);letter-spacing:.06em;margin-bottom:.65rem}
+.edu-deg{font-family:var(--serif);font-size:1.1rem;font-weight:700;line-height:1.2;margin-bottom:.28rem}
+.edu-school{font-family:var(--mono);font-size:.65rem;color:var(--accent3);margin-bottom:.75rem}
+.edu-note{font-size:.76rem;color:var(--tx3);line-height:1.72}
+
+/* CERTS */
+.cert-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--bd);margin-top:.75rem}
+.cert{background:var(--s1);padding:1.4rem;display:block;text-decoration:none;transition:background .2s}
+.cert:hover{background:var(--s2)}
+.cert-ico{font-size:1.3rem;margin-bottom:.65rem}
+.cert-name{font-size:.78rem;font-weight:500;color:var(--tx);line-height:1.35;margin-bottom:.28rem}
+.cert-auth{font-family:var(--mono);font-size:.6rem;color:var(--accent2);margin-bottom:.65rem}
+.cert-lnk{font-family:var(--mono);font-size:.58rem;color:var(--tx3);display:flex;align-items:center;gap:.28rem;text-transform:uppercase;letter-spacing:.06em;transition:color .2s}
+.cert:hover .cert-lnk{color:var(--accent)}
+
+/* CONTACT CTA */
+.cta-wrap{border-top:1px solid var(--bd);text-align:center;padding:7rem 2.5rem}
+.cta-eyebrow{display:flex;align-items:center;justify-content:center;gap:.7rem;font-family:var(--mono);font-size:.6rem;color:var(--accent);letter-spacing:.18em;text-transform:uppercase;margin-bottom:1.85rem}
+.cta-eyebrow::before,.cta-eyebrow::after{content:'';flex:1;max-width:56px;height:1px;background:var(--accent)}
+.cta-title{font-family:var(--serif);font-size:clamp(2.5rem,7vw,6rem);font-weight:900;line-height:.9;letter-spacing:-.03em;margin-bottom:1.25rem}
+.cta-title em{font-style:italic;color:var(--accent);font-weight:700}
+.cta-sub{font-family:var(--mono);font-size:.78rem;color:var(--tx2);max-width:400px;margin:0 auto 2.75rem;line-height:1.9}
+.cta-links{display:flex;justify-content:center;gap:.85rem;flex-wrap:wrap}
+.cl{display:flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.7rem;color:var(--tx2);border:1px solid var(--bd2);padding:.58rem 1.2rem;transition:all .2s}
+.cl:hover{border-color:var(--accent);color:var(--accent)}
+
+/* FOOTER */
+footer{border-top:1px solid var(--bd);padding:1.4rem 2.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
+footer p{font-family:var(--mono);font-size:.6rem;color:var(--tx3)}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .75s var(--ease),transform .75s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.15s}.d3{transition-delay:.22s}.d4{transition-delay:.3s}
+
+/* MOBILE */
+@media(max-width:860px){
+  nav{padding:.9rem 1.25rem}.nav-links{display:none}
+  h1{font-size:clamp(3rem,12vw,5.5rem)}
+  .sec,.sec-full{padding:4rem 1.25rem}
+  #hero{padding:0 1.25rem}
+  .hero-stats{gap:2rem}.stat .n{font-size:1.85rem}
+  .about-grid,.skills-grid{grid-template-columns:1fr;gap:2.25rem}
+  .sk-sticky{position:static}
+  .pgrid{grid-template-columns:1fr}.pcard.s2{grid-column:auto}.pcard.s2 .ptitle{font-size:1.35rem}
+  .edu-grid,.cert-grid,.more-grid{grid-template-columns:1fr}
+  .pub-row{grid-template-columns:44px 1fr;gap:.75rem}.pub-lnk{grid-column:2}
+  .cta-wrap{padding:4rem 1.25rem}
+  footer{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="cur-ring"></div>
+
+<nav id="nav">
+  <span class="nav-logo">AN/</span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#pubs">Publications</a></li>
+    <li><a href="#edu">Education</a></li>
+  </ul>
+  <a href="mailto:adhish.nanda@gmail.com" class="nav-cta">Hire me ↗</a>
+</nav>
+
+<!-- HERO -->
+<div id="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-glow"></div>
+
+  <div class="hero-main">
+    <div class="hero-eyebrow rv">
+      <span class="eyebrow-tag">Data Scientist · ML Engineer · Berlin</span>
+      <span class="status-badge"><span class="sdot"></span>Open to opportunities</span>
+    </div>
+    <h1 class="rv d1">
+      <span class="l1">Adhish</span>
+      <span class="l2">Nanda</span>
+    </h1>
+    <p class="hero-desc rv d2">MSc Data Science candidate in Berlin with 2.5+ years shipping production ETL pipelines, multimodal ML systems, and BI dashboards. Python · SQL · PyTorch · Airflow · Power BI.</p>
+    <div class="hero-chips rv d2">
+      <span class="chip">Python · Pandas · NumPy</span>
+      <span class="chip">PyTorch · Transformers</span>
+      <span class="chip">Apache Airflow · ETL</span>
+      <span class="chip">LightGBM · scikit-learn</span>
+      <span class="chip">Power BI · Tableau</span>
+      <span class="chip">SQL · DuckDB · MongoDB</span>
+      <span class="chip">NLP · Computer Vision</span>
+      <span class="chip">FastAPI · Streamlit · Redis</span>
+    </div>
+    <div class="hero-ctas rv d3">
+      <a href="https://github.com/adhishnanda" target="_blank" class="btn-p">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        GitHub
+      </a>
+      <a href="https://linkedin.com/in/adhishnanda" target="_blank" class="btn-g">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <a href="mailto:adhish.nanda@gmail.com" class="btn-g">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        Email me
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-foot rv d4">
+    <div class="hero-stats">
+      <div class="stat"><div class="n">2.5<span style="font-size:.45em;color:var(--tx3)">+</span></div><div class="l">Years Experience</div></div>
+      <div class="stat"><div class="n">5</div><div class="l">Publications</div></div>
+      <div class="stat"><div class="n">8<span style="font-size:.45em;color:var(--tx3)">+</span></div><div class="l">Repositories</div></div>
+      <div class="stat"><div class="n">4</div><div class="l">Certifications</div></div>
+    </div>
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div id="about" class="border-top">
+<div class="sec">
+  <div class="about-grid">
+    <div>
+      <div class="sec-label rv">About</div>
+      <h2 class="sec-title rv d1">Turning <em>data</em><br>into decisions</h2>
+      <div class="about-copy rv d2">
+        <p>I'm a Data Scientist and Analytics Engineer based in <strong>Berlin</strong>, currently completing my MSc in Data Science at the University of Europe for Applied Sciences (expected Sep 2026).</p>
+        <p>Before Berlin, I spent 2.5+ years at <strong>NIIT StackRoute</strong> as a Solutions Design Lead — automating ETL workflows, shipping KPI dashboards used by enterprise clients, and designing end-to-end ML case studies for Fortune 500 learning programs.</p>
+        <p>I work across the full stack: raw data ingestion → production ML pipelines → stakeholder-ready dashboards. I care about systems that <strong>actually get used</strong>.</p>
+      </div>
+      <div class="exp-list rv d3">
+        <div class="exp-row">
+          <div class="exp-date">Feb 2022 –<br>Sep 2024</div>
+          <div><div class="exp-role">Solutions Design Lead — Data & Analytics</div><div class="exp-co">NIIT StackRoute · Bangalore, India</div><div class="exp-desc">Improved reporting efficiency 20% via Power BI automation. Built reusable Airflow ETL templates. Designed end-to-end ML case studies for enterprise clients.</div></div>
+        </div>
+        <div class="exp-row">
+          <div class="exp-date">Jul 2021 –<br>Jan 2022</div>
+          <div><div class="exp-role">BI / Data Analyst Intern</div><div class="exp-co">NIIT Ltd (Learning Science & Technology) · Gurugram</div><div class="exp-desc">Reduced manual data processing 30% via Python ETL. Built Power BI dashboards for KPI transparency. Structured SQL-based metric validation.</div></div>
+        </div>
+        <div class="exp-row">
+          <div class="exp-date">Mar 2021 –<br>May 2021</div>
+          <div><div class="exp-role">Marketing Data Analyst Intern</div><div class="exp-co">Weaddo · Gurugram, India</div><div class="exp-desc">Improved campaign targeting 20% via regression and funnel analysis. Built automated Tableau dashboards. Cleaned multi-source ad data in Python.</div></div>
+        </div>
+        <div class="exp-row">
+          <div class="exp-date">Jun 2019 –<br>Aug 2019</div>
+          <div><div class="exp-role">Research Intern</div><div class="exp-co">Amity Institute of Biotechnology · Gurugram</div><div class="exp-desc">CNN-based breast cancer classification. Published in SpringerLink AISC series. EDA and Tableau visual analytics.</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="about-right rv d2">
+      <div class="term-box">
+        <div class="term-top"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><span class="term-ttl">adhish@berlin: ~$</span></div>
+        <div class="term-body">
+          <div><span class="tc">$ </span><span class="tm">python3 profile.py</span></div>
+          <div>&nbsp;</div>
+          <div><span class="tm">name</span>      = <span class="ts">"Adhish Nanda"</span></div>
+          <div><span class="tm">location</span>  = <span class="ts">"Berlin, Germany 🇩🇪"</span></div>
+          <div><span class="tm">degree</span>    = <span class="ts">"MSc Data Science (exp. 2026)"</span></div>
+          <div>&nbsp;</div>
+          <div><span class="tm">core_stack</span> = {</div>
+          <div>&nbsp;&nbsp;<span class="tk">"languages"</span>: [<span class="ts">"Python"</span>, <span class="ts">"SQL"</span>, <span class="ts">"R"</span>],</div>
+          <div>&nbsp;&nbsp;<span class="tk">"ml"</span>:        [<span class="ts">"PyTorch"</span>, <span class="ts">"LightGBM"</span>, <span class="ts">"sklearn"</span>],</div>
+          <div>&nbsp;&nbsp;<span class="tk">"data_eng"</span>: [<span class="ts">"Airflow"</span>, <span class="ts">"DuckDB"</span>, <span class="ts">"FastAPI"</span>],</div>
+          <div>&nbsp;&nbsp;<span class="tk">"bi"</span>:        [<span class="ts">"Power BI"</span>, <span class="ts">"Tableau"</span>, <span class="ts">"Streamlit"</span>]</div>
+          <div>}</div>
+          <div>&nbsp;</div>
+          <div><span class="tm">open_to_work</span>  = <span class="tv">True</span></div>
+          <div><span class="tm">languages</span>     = [<span class="ts">"English (C1)"</span>, <span class="ts">"German (A2)"</span>]</div>
+          <div><span class="tm">publications</span>  = <span class="tv">5</span>&nbsp;&nbsp;<span class="tc"># IEEE, Springer, AJAST</span></div>
+          <div>&nbsp;</div>
+          <div><span class="tc">$ </span><span id="tc2" class="tm">_</span></div>
+        </div>
+      </div>
+      <div class="contact-box">
+        <div class="contact-box-title">Get in touch</div>
+        <a href="mailto:adhish.nanda@gmail.com" class="crow" style="text-decoration:none"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>adhish.nanda@gmail.com</a>
+        <a href="https://github.com/adhishnanda" target="_blank" class="crow" style="text-decoration:none"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>github.com/adhishnanda</a>
+        <a href="https://linkedin.com/in/adhishnanda" target="_blank" class="crow" style="text-decoration:none"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>linkedin.com/in/adhishnanda</a>
+        <div class="crow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Berlin Metropolitan Area · 10369</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- PROJECTS -->
+<div id="projects" class="border-top bg-s1">
+<div class="sec-full">
+  <div class="proj-hdr">
+    <div>
+      <div class="sec-label rv">Projects</div>
+      <h2 class="sec-title rv d1">Selected <em>work</em></h2>
+    </div>
+    <div class="ftabs rv d2">
+      <button class="ftab on" onclick="doFilter('all',this)">All</button>
+      <button class="ftab" onclick="doFilter('ml',this)">ML / AI</button>
+      <button class="ftab" onclick="doFilter('cv',this)">Computer Vision</button>
+      <button class="ftab" onclick="doFilter('de',this)">Data Engineering</button>
+      <button class="ftab" onclick="doFilter('anomaly',this)">Anomaly Detection</button>
+    </div>
+  </div>
+
+  <div class="pgrid rv" id="pgrid">
+    <!-- 01 NEWS RANKING — FEATURED -->
+    <div class="pcard s2" data-cat="ml de">
+      <span class="ptag">Featured · Production ML · Ranking & Recommendation</span>
+      <span class="pnum">01</span>
+      <h3 class="ptitle">Personalized News Feed<br>Ranking System</h3>
+      <p class="pdesc">End-to-end production ML pipeline: real-time ingestion from Hacker News + RSS + Guardian API into DuckDB; 30,000-row behavioral simulation across 100 synthetic users; LightGBM ranker with Logistic Regression baseline; IPS/SNIPS counterfactual evaluation; Redis online feature store; FastAPI ranking service; interactive Streamlit UI. 43-test suite, 100% pass rate.</p>
+      <div class="pstack"><span class="stk">Python</span><span class="stk">LightGBM</span><span class="stk">DuckDB</span><span class="stk">FastAPI</span><span class="stk">Redis</span><span class="stk">Streamlit</span><span class="stk">scikit-learn</span><span class="stk">Parquet</span><span class="stk">pytest</span><span class="stk">TF-IDF · SVD</span></div>
+      <div class="phi-row">
+        <div class="phi"><div class="hv">30k</div><div class="hl">Training rows simulated</div></div>
+        <div class="phi"><div class="hv">43</div><div class="hl">Tests · 100% pass</div></div>
+        <div class="phi"><div class="hv">IPS/SNIPS</div><div class="hl">Counterfactual eval</div></div>
+        <div class="phi"><div class="hv">Multi-obj</div><div class="hl">CTR + diversity reranking</div></div>
+      </div>
+      <div class="plnks" style="margin-top:1.1rem">
+        <a href="https://github.com/adhishnanda/news-feed-ranking-system" target="_blank" class="plnk"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>View on GitHub ↗</a>
+      </div>
+    </div>
+    <!-- 02 EMOTION MULTIMODAL -->
+    <div class="pcard" data-cat="ml cv">
+      <span class="ptag">Research-Grade · Multimodal ML · Capstone</span>
+      <span class="pnum">02</span>
+      <h3 class="ptitle">Emotion-Adaptive Multimodal CBT Assistant</h3>
+      <p class="pdesc">Text + audio + video emotion fusion. Fine-tuned DistilBERT for NLP, CNN-BiLSTM for speech, ResNet for facial features. Late-fusion neural network with interpretable CBT-style response output. MSc Capstone project.</p>
+      <div class="pstack"><span class="stk">PyTorch</span><span class="stk">DistilBERT</span><span class="stk">CNN-BiLSTM</span><span class="stk">ResNet</span><span class="stk">Hugging Face</span><span class="stk">Python</span></div>
+      <div class="plnks"><a href="https://github.com/adhishnanda/emotion-adaptive-multimodal-cbt-assistant" target="_blank" class="plnk"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>GitHub ↗</a></div>
+    </div>
+    <!-- 03 GESTURE -->
+    <div class="pcard" data-cat="ml cv">
+      <span class="ptag">Computer Vision · Gesture Recognition</span>
+      <span class="pnum">03</span>
+      <h3 class="ptitle">Gesture-Controlled German Learning App</h3>
+      <p class="pdesc">Real-time gesture ML for interactive language learning. 95–99% classification accuracy. Random Forest, SVM, LR, and CNN comparison. 3,000-label gesture dataset built from scratch. Low-latency browser inference via MediaPipe.</p>
+      <div class="pstack"><span class="stk">Python</span><span class="stk">MediaPipe</span><span class="stk">OpenCV</span><span class="stk">scikit-learn</span><span class="stk">CNN</span><span class="stk">k-fold CV</span></div>
+      <div class="phi-row">
+        <div class="phi"><div class="hv">95–99%</div><div class="hl">Gesture accuracy</div></div>
+        <div class="phi"><div class="hv">3k</div><div class="hl">Labelled samples</div></div>
+      </div>
+      <div class="plnks" style="margin-top:1.1rem"><a href="https://github.com/adhishnanda/motion-based-german-learning-app" target="_blank" class="plnk"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>GitHub ↗</a></div>
+    </div>
+    <!-- 04 AIRFLOW -->
+    <div class="pcard" data-cat="de ml">
+      <span class="ptag">Data Engineering · Batch Pipeline · MLOps</span>
+      <span class="pnum">04</span>
+      <h3 class="ptitle">Airflow Polling Intelligence Pipeline</h3>
+      <p class="pdesc">Production-style batch pipeline on U.S. presidential polling data. Modular DAGs: ingestion → cleaning → analytics mart → ML features. Bronze/silver/gold Parquet store. Streamlit dashboard with forecasting and transparency analysis.</p>
+      <div class="pstack"><span class="stk">Apache Airflow</span><span class="stk">Python</span><span class="stk">Streamlit</span><span class="stk">Parquet</span><span class="stk">DAGs</span><span class="stk">ML Pipeline</span></div>
+      <div class="plnks"><a href="https://github.com/adhishnanda/airflow-polling-intelligence-pipeline" target="_blank" class="plnk"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>GitHub ↗</a></div>
+    </div>
+    <!-- 05 HEALTHCARE -->
+    <div class="pcard" data-cat="ml anomaly">
+      <span class="ptag">ML · Healthcare · Risk Segmentation</span>
+      <span class="pnum">05</span>
+      <h3 class="ptitle">Healthcare Cost Prediction & Risk Segmentation</h3>
+      <p class="pdesc">End-to-end ML on U.S. insurance cost data. LR, Random Forest (best performer), XGBoost comparison. K-Means customer risk segmentation. Isolation Forest anomaly detection for high-cost outliers.</p>
+      <div class="pstack"><span class="stk">Python</span><span class="stk">XGBoost</span><span class="stk">Random Forest</span><span class="stk">K-Means</span><span class="stk">Isolation Forest</span><span class="stk">scikit-learn</span></div>
+      <div class="plnks"><a href="https://github.com/adhishnanda/healthcare-cost-prediction-analytics-course-project" target="_blank" class="plnk"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>GitHub ↗</a></div>
+    </div>
+    <!-- 06 OC-SVM -->
+    <div class="pcard" data-cat="ml anomaly">
+      <span class="ptag">Anomaly Detection · Semi-supervised</span>
+      <span class="pnum">06</span>
+      <h3 class="ptitle">Anomaly Detection — KDD Cup 1999 (OC-SVM)</h3>
+      <p class="pdesc">Semi-supervised anomaly detection on network intrusion data. One-Class SVM trained on normal traffic detects novel attacks in high-dimensional space. Strong on shape-capture for unusual observations.</p>
+      <div class="pstack"><span class="stk">Python</span><span class="stk">OC-SVM</span><span class="stk">scikit-learn</span><span class="stk">Jupyter</span></div>
+      <div class="plnks"><a href="https://github.com/adhishnanda/Anomaly-Detection-on-KDD-Cup-1999-with-OC-SVM" target="_blank" class="plnk"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>GitHub ↗</a></div>
+    </div>
+    <!-- 07 ISOLATION FOREST -->
+    <div class="pcard" data-cat="ml anomaly">
+      <span class="ptag">Anomaly Detection · Unsupervised</span>
+      <span class="pnum">07</span>
+      <h3 class="ptitle">Anomaly Detection — KDD Cup 1999 (Isolation Forest)</h3>
+      <p class="pdesc">Unsupervised network intrusion detection using Isolation Forest. Effective on high-dimensional data with minimal hyperparameter tuning. Comparative analysis with OC-SVM approach.</p>
+      <div class="pstack"><span class="stk">Python</span><span class="stk">Isolation Forest</span><span class="stk">scikit-learn</span><span class="stk">Jupyter</span></div>
+      <div class="plnks"><a href="https://github.com/adhishnanda/Anomaly-Detection-with-Isolation-Forest-on-KDD-Cup-1999" target="_blank" class="plnk"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>GitHub ↗</a></div>
+    </div>
+  </div>
+
+  <!-- More repos row -->
+  <div class="more-grid rv d2">
+    <div class="mini">
+      <div class="mini-name">Student Performance Prediction</div>
+      <div class="mini-desc">Decision tree classification on student academic records with full EDA and cross-validation evaluation.</div>
+      <span class="mini-tag">Decision Trees · scikit-learn</span>
+      <a href="https://github.com/adhishnanda/Student-Performance-Prediction-with-Decision-Trees" target="_blank" class="mini-lnk"><svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>View repo ↗</a>
+    </div>
+    <div class="mini">
+      <div class="mini-name">Anomaly Detection — PyCaret</div>
+      <div class="mini-desc">Streamlined anomaly detection pipeline using PyCaret's low-code ML framework for rapid experimentation.</div>
+      <span class="mini-tag">PyCaret · Anomaly Detection</span>
+      <a href="https://github.com/adhishnanda/Build-an-Anomaly-Detection-Model-using-PyCaret" target="_blank" class="mini-lnk"><svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>View repo ↗</a>
+    </div>
+    <div class="mini">
+      <div class="mini-name">Learn Python the Hard Way</div>
+      <div class="mini-desc">Structured practice exercises and annotated notes from the classic Python programming course.</div>
+      <span class="mini-tag">Python · Exercises</span>
+      <a href="https://github.com/adhishnanda/Learn-Python-the-Hard-Way" target="_blank" class="mini-lnk"><svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>View repo ↗</a>
+    </div>
+    <div class="all-repos">
+      <p>All repositories</p>
+      <a href="https://github.com/adhishnanda?tab=repositories" target="_blank" class="btn-p" style="font-size:.62rem;padding:.55rem 1rem">View on GitHub ↗</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- SKILLS -->
+<div id="skills" class="border-top">
+<div class="sec">
+  <div class="sec-label rv">Skills</div>
+  <h2 class="sec-title rv d1">Technical <em>stack</em></h2>
+  <div class="skills-grid">
+    <div class="sk-sticky rv d1">
+      <p class="sk-intro">Core proficiencies from 2.5+ years of production analytics work, two master's degrees, and independent projects across ML, NLP, computer vision, and data engineering.</p>
+    </div>
+    <div class="rv d2">
+      <div class="sg"><div class="sg-title">Languages & Core Libraries</div><div class="pills"><span class="pill core">Python</span><span class="pill core">SQL</span><span class="pill">R</span><span class="pill core">Pandas</span><span class="pill core">NumPy</span><span class="pill">Matplotlib · Seaborn</span></div></div>
+      <div class="sg"><div class="sg-title">Machine Learning & AI</div><div class="pills"><span class="pill core">scikit-learn</span><span class="pill core">PyTorch</span><span class="pill core">LightGBM</span><span class="pill core">XGBoost</span><span class="pill">Keras</span><span class="pill">TensorFlow</span><span class="pill">Hugging Face Transformers</span><span class="pill">MediaPipe</span></div></div>
+      <div class="sg"><div class="sg-title">ML Techniques</div><div class="pills"><span class="pill">Regression & Classification</span><span class="pill">Clustering</span><span class="pill">NLP</span><span class="pill">Computer Vision</span><span class="pill">Deep Learning</span><span class="pill">CNN · BiLSTM</span><span class="pill">Feature Engineering</span><span class="pill">Cross-Validation</span><span class="pill">Anomaly Detection</span><span class="pill">Time-Series Forecasting</span><span class="pill">Recommendation Systems</span><span class="pill">Multimodal Learning</span></div></div>
+      <div class="sg"><div class="sg-title">Data Engineering & MLOps</div><div class="pills"><span class="pill core">Apache Airflow</span><span class="pill core">ETL Pipelines</span><span class="pill">DuckDB</span><span class="pill">Parquet</span><span class="pill">FastAPI</span><span class="pill">Docker</span><span class="pill">MongoDB</span><span class="pill">Redis</span><span class="pill">AWS (academic)</span><span class="pill">Git</span></div></div>
+      <div class="sg"><div class="sg-title">Business Intelligence & Visualization</div><div class="pills"><span class="pill core p2">Power BI</span><span class="pill p2">DAX</span><span class="pill p2">Tableau</span><span class="pill">Streamlit</span><span class="pill">Plotly Dash</span><span class="pill">Excel · Power Query</span><span class="pill">Folium</span></div></div>
+      <div class="sg"><div class="sg-title">Other</div><div class="pills"><span class="pill">Statistical Analysis</span><span class="pill">Data Modeling</span><span class="pill">Marketing Analytics</span><span class="pill">Big Data</span><span class="pill">Signal Processing</span><span class="pill">C</span><span class="pill">C++</span></div></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- PUBLICATIONS -->
+<div id="pubs" class="border-top bg-s1">
+<div class="sec">
+  <div class="sec-label rv">Publications</div>
+  <h2 class="sec-title rv d1">Published <em>research</em></h2>
+  <div class="pub-list">
+    <div class="pub-row rv"><div class="pub-yr">2020</div><div><div class="pub-ttl">A Comprehensive Survey of Machine Learning in Scheduling of Transactions</div><div class="pub-pub">IEEE · ICOEI 2020</div></div><a href="https://doi.org/10.1109/ICOEI48184.2020.9143025" target="_blank" class="pub-lnk">IEEE ↗</a></div>
+    <div class="pub-row rv d1"><div class="pub-yr">2020</div><div><div class="pub-ttl">Analysis of Breast Cancer Detection Techniques Using RapidMiner</div><div class="pub-pub">SpringerLink · AISC Series</div></div><a href="https://link.springer.com/chapter/10.1007/978-981-15-4992-2_1" target="_blank" class="pub-lnk">Springer ↗</a></div>
+    <div class="pub-row rv d2"><div class="pub-yr">2019</div><div><div class="pub-ttl">A Comprehensive Survey of OLAP: Recent Trends</div><div class="pub-pub">IEEE</div></div><a href="https://ieeexplore.ieee.org/document/8822203" target="_blank" class="pub-lnk">IEEE ↗</a></div>
+    <div class="pub-row rv"><div class="pub-yr">2017</div><div><div class="pub-ttl">SOC Estimation of Lithium-Ion Batteries used in Electric Vehicles</div><div class="pub-pub">Asian Journal of Applied Science and Technology (AJAST)</div></div><a href="http://ajast.net/data/uploads/27.pdf" target="_blank" class="pub-lnk">AJAST ↗</a></div>
+    <div class="pub-row rv d1"><div class="pub-yr">2017</div><div><div class="pub-ttl">Implementing a Smart-Vehicle using IoT and Cloud Computing Extension</div><div class="pub-pub">Asian Journal of Applied Science and Technology (AJAST)</div></div><a href="http://ajast.net/data/uploads/24.pdf" target="_blank" class="pub-lnk">AJAST ↗</a></div>
+  </div>
+</div>
+</div>
+
+<!-- EDUCATION -->
+<div id="edu" class="border-top">
+<div class="sec">
+  <div class="sec-label rv">Education</div>
+  <h2 class="sec-title rv d1">Academic <em>background</em></h2>
+  <div class="edu-grid">
+    <div class="edu-card rv"><div class="edu-dates">Sep 2024 – Aug 2026 (Expected)</div><div class="edu-deg">MSc Data Science</div><div class="edu-school">University of Europe for Applied Sciences · Berlin, Germany</div><div class="edu-note">ML, Data Engineering, Cloud (AWS), Data Analytics, Marketing Analytics. Capstone: Emotion-Adaptive Multimodal CBT Assistant (PyTorch, Transformers, CNN-BiLSTM, late fusion).</div></div>
+    <div class="edu-card rv d1"><div class="edu-dates">Aug 2018 – Jul 2020</div><div class="edu-deg">MTech Data Science</div><div class="edu-school">Amity University · Gurugram, India</div><div class="edu-note">Thesis: Transaction Scheduling using ML. Bayesian Networks, Predictive Analytics, NLP, Big Data, DSA. Published 3 research papers during this degree.</div></div>
+    <div class="edu-card rv d2"><div class="edu-dates">Aug 2019 – Sep 2019</div><div class="edu-deg">PG Summer Programme — ML & Data Analytics in Finance</div><div class="edu-school">Ludwig-Maximilians-Universität München (LMU) · Munich, Germany</div><div class="edu-note">Supervised & unsupervised ML applied to real-world financial datasets. Clustering, predictive modelling, Python, data visualization.</div></div>
+    <div class="edu-card rv d3"><div class="edu-dates">Aug 2013 – Jun 2017</div><div class="edu-deg">BE Electronics & Communication Engineering</div><div class="edu-school">MVJCE, Bangalore (VTU) · India</div><div class="edu-note">First Class. Signals & Systems, DSP, Engineering Mathematics, C/C++. Thesis: State-of-Charge Estimation of Li-Ion Batteries in EVs.</div></div>
+  </div>
+</div>
+</div>
+
+<!-- CERTIFICATIONS -->
+<div class="border-top bg-s1">
+<div class="sec">
+  <div class="sec-label rv">Certifications</div>
+  <h2 class="sec-title rv d1">Professional <em>certifications</em></h2>
+  <div class="cert-grid">
+    <a href="https://www.coursera.org/account/accomplishments/specialization/AZNWHC5XSCF4" target="_blank" class="cert rv"><div class="cert-ico">🧠</div><div class="cert-name">DeepLearning.AI TensorFlow Developer Specialization</div><div class="cert-auth">DeepLearning.AI · 2025</div><div class="cert-lnk"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View credential ↗</div></a>
+    <a href="https://coursera.org/share/f1547023cc9e8779ba1d99d5db663284" target="_blank" class="cert rv d1"><div class="cert-ico">📊</div><div class="cert-name">IBM Data Science Professional Certificate</div><div class="cert-auth">IBM · Coursera · 2022</div><div class="cert-lnk"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View credential ↗</div></a>
+    <a href="https://www.udemy.com/certificate/UC-b5c5dae1-c17c-4ede-a07f-9d9a544645a3/" target="_blank" class="cert rv d2"><div class="cert-ico">📈</div><div class="cert-name">Microsoft Power BI Desktop for Business Intelligence</div><div class="cert-auth">Udemy · 2021</div><div class="cert-lnk"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View credential ↗</div></a>
+    <a href="https://udemy-certificate.s3.amazonaws.com/image/UC-ffbeb745-46cf-4a48-b548-1866a9beece0.jpg" target="_blank" class="cert rv d3"><div class="cert-ico">🗺️</div><div class="cert-name">A-Z Hands-On Tableau Training for Data Science</div><div class="cert-auth">Udemy · 2022</div><div class="cert-lnk"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View credential ↗</div></a>
+  </div>
+</div>
+</div>
+
+<!-- CONTACT -->
+<div class="cta-wrap">
+  <div class="cta-eyebrow rv">Let's work together</div>
+  <h2 class="cta-title rv d1">Available<br>in <em>Berlin</em></h2>
+  <p class="cta-sub rv d2">Looking for Data Analyst, BI Analyst, or Junior Data Scientist roles. Available immediately. Let's build something useful together.</p>
+  <div class="cta-links rv d3">
+    <a href="mailto:adhish.nanda@gmail.com" class="cl"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>adhish.nanda@gmail.com</a>
+    <a href="https://github.com/adhishnanda" target="_blank" class="cl"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a>
+    <a href="https://linkedin.com/in/adhishnanda" target="_blank" class="cl"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+    <a href="tel:+491624758595" class="cl"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.03z"/></svg>+49 162 475 8595</a>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 Adhish Nanda · Berlin, Germany</p>
+  <p>Built with HTML · Hosted on GitHub Pages</p>
+</footer>
+
+<script>
+// Cursor
+const cur=document.getElementById('cur'),ring=document.getElementById('cur-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX;my=e.clientY;
+  cur.style.top=my+'px';cur.style.left=mx+'px';
+});
+(function animRing(){
+  rx+=(mx-rx)*.11;ry+=(my-ry)*.11;
+  ring.style.top=ry+'px';ring.style.left=rx+'px';
+  requestAnimationFrame(animRing);
+})();
+document.querySelectorAll('a,button,.pcard,.mini').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.width='14px';cur.style.height='14px';ring.style.width='44px';ring.style.height='44px'});
+  el.addEventListener('mouseleave',()=>{cur.style.width='8px';cur.style.height='8px';ring.style.width='32px';ring.style.height='32px'});
+});
+
+// Nav sticky
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('stuck',scrollY>50),{passive:true});
+
+// Scroll reveal
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{
+  if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}
+}),{threshold:.1,rootMargin:'0px 0px -32px 0px'});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+
+// Filter
+function doFilter(cat,btn){
+  document.querySelectorAll('.ftab').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('.pcard').forEach(c=>{
+    const cats=c.dataset.cat||'';
+    const vis=cat==='all'||cats.includes(cat);
+    c.style.display=vis?'':'none';
+    if(!vis||cat==='all'){
+      if(cat==='all'&&c.dataset.span)c.classList.add('s2');
+    } else {
+      if(c.classList.contains('s2')){c.dataset.span='1';c.classList.remove('s2')}
+    }
+  });
+}
+
+// Terminal cursor blink
+const tc=document.getElementById('tc2');
+if(tc){setInterval(()=>{tc.style.opacity=tc.style.opacity==='0'?'1':'0'},580)}
+</script>
+</body>
+</html>
