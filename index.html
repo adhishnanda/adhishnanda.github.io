@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Adhish Nanda — Data Scientist & ML Engineer</title>
-<meta name="description" content="MSc Data Science | Berlin | Python · SQL · ML · ETL · Power BI | Open to roles across Germany, DACH & Western Europe">
+<title>Adhish Nanda — Data & Analytics Engineer | dbt · SQL · Power BI · Berlin</title>
+<meta name="description" content="Junior Data & Analytics Professional in Berlin — 2.5+ years enterprise experience · dbt · Python · SQL · Power BI · Airflow · PyTorch · 5 IEEE/Springer publications · Open to full-time, working student & internship roles across Germany and the EU">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -216,6 +216,24 @@ footer{padding:2rem 2.5rem;border-top:1px solid var(--bd);display:flex;justify-c
 .rv2{opacity:0;transform:translateY(16px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
 .rv2.in{opacity:1;transform:none}
 
+/* ── EXPERIENCE STACK PILLS ── */
+.t-stack{display:flex;flex-wrap:wrap;gap:.35rem;margin:.5rem 0 .6rem}
+.stag{font-family:var(--mono);font-size:.55rem;padding:.18rem .5rem;border-radius:3px;background:var(--s2);border:1px solid var(--bd);color:var(--tx3)}
+.t-context{font-size:.82rem;color:var(--tx3);font-style:italic;margin-bottom:.5rem}
+
+/* ── EDU COURSEWORK ── */
+.edu-modules{display:flex;flex-wrap:wrap;gap:.35rem;margin:.6rem 0}
+.emod{font-family:var(--mono);font-size:.58rem;padding:.2rem .5rem;border-radius:3px;background:var(--s3);border:1px solid var(--bd);color:var(--tx3)}
+.edu-highlight{font-size:.8rem;color:var(--tx2);line-height:1.7;margin-top:.5rem}
+.edu-highlight strong{color:var(--tx)}
+
+
+/* ── PROFILE PHOTO ── */
+.profile-photo-wrap{position:relative;width:120px;height:120px;margin:0 auto 1.5rem;flex-shrink:0}
+.profile-photo{width:120px;height:120px;border-radius:50%;object-fit:cover;border:2px solid var(--bd2);display:block}
+.profile-photo-wrap::after{content:'';position:absolute;inset:-4px;border-radius:50%;border:1px solid rgba(201,245,59,.2);pointer-events:none}
+.profile-status-dot{position:absolute;bottom:6px;right:6px;width:12px;height:12px;background:var(--teal);border-radius:50%;border:2px solid var(--bg);box-shadow:0 0 8px var(--teal)}
+
 /* ── RESPONSIVE ── */
 @media(max-width:900px){
   .hero-inner{grid-template-columns:1fr}
@@ -242,9 +260,10 @@ footer{padding:2rem 2.5rem;border-top:1px solid var(--bd);display:flex;justify-c
     <li><a href="#experience">Experience</a></li>
     <li><a href="#education">Education</a></li>
     <li><a href="#publications">Publications</a></li>
+    <li><a href="#certifications">Certifications</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="mailto:adhish.nanda@gmail.com" class="nav-cta">Hire Me</a>
+  <a href="mailto:adhish.nanda@gmail.com?subject=CV%20Request%20—%20[Role%20%2F%20Company]&body=Hi%20Adhish%2C%0A%0AI%27d%20like%20to%20request%20your%20CV%20for%20the%20[Role]%20position%20at%20[Company].%0A%0AThanks" class="nav-cta">Request CV</a>
 </nav>
 
 <!-- HERO -->
@@ -292,16 +311,19 @@ footer{padding:2rem 2.5rem;border-top:1px solid var(--bd);display:flex;justify-c
     <div class="hero-card rv">
       <div class="hero-card-label">// live stats</div>
       <div class="stat-row"><span class="stat-key">status</span><span class="stat-val">open_to_work</span></div>
-      <div class="stat-row"><span class="stat-key">target</span><span class="stat-val">Full-Time / WS</span></div>
+      <div class="stat-row"><span class="stat-key">target</span><span class="stat-val">Full-Time / Internship / WS</span></div>
       <div class="stat-row"><span class="stat-key">base</span><span class="stat-val">Berlin, DE</span></div>
       <div class="stat-row"><span class="stat-key">exp</span><span class="stat-val">2.5+ yrs</span></div>
       <div class="stat-row"><span class="stat-key">degree</span><span class="stat-val">MSc Data Sci</span></div>
       <div class="stat-row"><span class="stat-key">stack</span><span class="stat-val">Python · SQL</span></div>
-      <div class="stat-row"><span class="stat-key">bi</span><span class="stat-val">Power BI · Tableau</span></div>
-      <div class="stat-row"><span class="stat-key">ml</span><span class="stat-val">PyTorch · SKLearn</span></div>
-      <div class="stat-row"><span class="stat-key">pipeline</span><span class="stat-val">Airflow · ETL</span></div>
+      <div class="stat-row"><span class="stat-key">bi</span><span class="stat-val">Power BI · Tableau · Looker</span></div>
+      <div class="stat-row"><span class="stat-key">ml</span><span class="stat-val">PyTorch · SKLearn · TF</span></div>
+      <div class="stat-row"><span class="stat-key">pipeline</span><span class="stat-val">dbt · Airflow · ETL</span></div>
+      <div class="stat-row"><span class="stat-key">api</span><span class="stat-val">FastAPI · Docker</span></div>
       <div class="stat-row"><span class="stat-key">pubs</span><span class="stat-val">5 (IEEE · Springer)</span></div>
       <div class="stat-row"><span class="stat-key">reloc</span><span class="stat-val">EU-wide ✓</span></div>
+      <div class="stat-row"><span class="stat-key">german</span><span class="stat-val">A2 · learning</span></div>
+      <div class="stat-row"><span class="stat-key">work_auth</span><span class="stat-val">available · Blue Card</span></div>
     </div>
   </div>
 </section>
@@ -319,10 +341,16 @@ footer{padding:2rem 2.5rem;border-top:1px solid var(--bd);display:flex;justify-c
         <p>I'm seeking <strong>full-time junior roles, working student positions, and internships</strong> in Data Analytics, BI, Data Engineering, or Applied ML — open to immediate start and EU-wide relocation. Eligible for EU Blue Card. Work authorisation in Germany: available.</p>
         <p style="margin-top:1rem"><strong>Target roles:</strong> <span style="color:var(--lime)">Data Analyst · BI Analyst · Analytics Engineer · Junior Data Scientist · Reporting Analyst · Product Analyst · Data Engineer (Junior) · AI/ML Engineer</span></p>
         <div class="skill-cloud">
-          <span class="skill-tag hot">Python</span><span class="skill-tag hot">SQL</span><span class="skill-tag hot">Power BI</span><span class="skill-tag hot">ETL Pipelines</span><span class="skill-tag hot">Airflow</span><span class="skill-tag hot">Machine Learning</span><span class="skill-tag hot">PyTorch</span><span class="skill-tag hot">Pandas / NumPy</span><span class="skill-tag hot">Transformers</span><span class="skill-tag hot">Scikit-Learn</span><span class="skill-tag hot">Feature Engineering</span><span class="skill-tag hot">A/B Testing</span><span class="skill-tag">Tableau</span><span class="skill-tag">Deep Learning</span><span class="skill-tag">NLP</span><span class="skill-tag">Computer Vision</span><span class="skill-tag">FastAPI</span><span class="skill-tag">Docker</span><span class="skill-tag">MongoDB</span><span class="skill-tag">DuckDB</span><span class="skill-tag">AWS (academic)</span><span class="skill-tag">XGBoost</span><span class="skill-tag">SHAP / Explainability</span><span class="skill-tag">MediaPipe</span><span class="skill-tag">Git</span>
+          <span class="skill-tag hot">Python</span><span class="skill-tag hot">SQL</span><span class="skill-tag hot">Power BI</span><span class="skill-tag hot">dbt</span><span class="skill-tag hot">ETL Pipelines</span><span class="skill-tag hot">Airflow</span><span class="skill-tag hot">Machine Learning</span><span class="skill-tag hot">PyTorch</span><span class="skill-tag hot">Pandas / NumPy</span><span class="skill-tag hot">Transformers</span><span class="skill-tag hot">Scikit-Learn</span><span class="skill-tag hot">Feature Engineering</span><span class="skill-tag hot">A/B Testing</span><span class="skill-tag">Tableau</span><span class="skill-tag">Looker Studio</span><span class="skill-tag">BigQuery</span><span class="skill-tag">Deep Learning</span><span class="skill-tag">TensorFlow</span><span class="skill-tag">NLP</span><span class="skill-tag">Computer Vision</span><span class="skill-tag">FastAPI</span><span class="skill-tag">Docker</span><span class="skill-tag">MongoDB</span><span class="skill-tag">DuckDB</span><span class="skill-tag">AWS (academic)</span><span class="skill-tag">XGBoost</span><span class="skill-tag">SHAP / Explainability</span><span class="skill-tag">Kimball Star Schema</span><span class="skill-tag">MediaPipe</span><span class="skill-tag">Git</span>
         </div>
       </div>
-      <div class="rv">
+      <div class="rv" style="display:flex;flex-direction:column;align-items:stretch;gap:0">
+        <div style="display:flex;justify-content:center;margin-bottom:1.5rem">
+          <div class="profile-photo-wrap">
+            <img src="data:image/jpeg;base64,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" alt="Adhish Nanda" class="profile-photo">
+            <div class="profile-status-dot"></div>
+          </div>
+        </div>
         <div class="terminal">
           <div class="terminal-bar">
             <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
@@ -339,8 +367,9 @@ footer{padding:2rem 2.5rem;border-top:1px solid var(--bd);display:flex;justify-c
             <br>
             <div>&nbsp;&nbsp;<span class="t-key">stack</span> = [</div>
             <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"Python"</span>, <span class="t-str">"SQL"</span>,</div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"dbt"</span>, <span class="t-str">"BigQuery"</span>,</div>
             <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"Power BI"</span>, <span class="t-str">"Airflow"</span>,</div>
-            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"PyTorch"</span>, <span class="t-str">"Transformers"</span></div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"PyTorch"</span>, <span class="t-str">"FastAPI"</span></div>
             <div>&nbsp;&nbsp;]</div>
             <br>
             <div>&nbsp;&nbsp;<span class="t-key">publications</span> = <span class="t-num">5</span></div>
@@ -348,6 +377,17 @@ footer{padding:2rem 2.5rem;border-top:1px solid var(--bd);display:flex;justify-c
             <br>
             <div>&nbsp;&nbsp;<span class="t-key">seeking</span> = <span class="t-str">"Full-Time / WS / Intern"</span></div>
             <div>&nbsp;&nbsp;<span class="t-key">available</span> = <span class="t-val">True</span> <span class="t-comment">✓</span></div>
+          </div>
+        </div>
+        <!-- GitHub Stats -->
+        <div style="margin-top:1rem;background:var(--s1);border:1px solid var(--bd);border-radius:var(--r);padding:1rem 1.4rem">
+          <div style="font-family:var(--mono);font-size:.58rem;color:var(--tx3);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.75rem">// github activity</div>
+          <img src="https://github-readme-stats.vercel.app/api?username=adhishnanda&show_icons=true&theme=dark&bg_color=0d0f12&border_color=252830&title_color=c9f53b&icon_color=2dd4bf&text_color=9095a8&hide_border=false&include_all_commits=true&count_private=false" alt="GitHub Stats" style="width:100%;border-radius:6px;display:block" onerror="this.style.display='none'">
+          <div style="margin-top:.65rem;display:flex;gap:.4rem;flex-wrap:wrap">
+            <a href="https://github.com/adhishnanda/ecommerce-dbt-stack" target="_blank" class="skill-tag" style="color:var(--lime);border-color:rgba(201,245,59,.25)">ecommerce-dbt-stack ↗</a>
+            <a href="https://github.com/adhishnanda/news-feed-ranking-system" target="_blank" class="skill-tag">news-feed-ranking ↗</a>
+            <a href="https://github.com/adhishnanda/airflow-polling-intelligence-pipeline" target="_blank" class="skill-tag">airflow-pipeline ↗</a>
+            <a href="https://github.com/adhishnanda/emotion-adaptive-multimodal-cbt-assistant" target="_blank" class="skill-tag">multimodal-cbt ↗</a>
           </div>
         </div>
       </div>
@@ -373,7 +413,7 @@ footer{padding:2rem 2.5rem;border-top:1px solid var(--bd);display:flex;justify-c
         <div style="font-family:var(--mono);font-size:.62rem;color:var(--tx3);margin-top:.4rem;line-height:1.5">Accuracy on MELD benchmark<br>Multimodal emotion recognition</div>
       </div>
       <div class="rv">
-        <div style="font-family:var(--serif);font-size:2.5rem;color:var(--lime);line-height:1">6+</div>
+        <div style="font-family:var(--serif);font-size:2.5rem;color:var(--lime);line-height:1">7+</div>
         <div style="font-family:var(--mono);font-size:.62rem;color:var(--tx3);margin-top:.4rem;line-height:1.5">End-to-end projects<br>with live demos &amp; GitHub</div>
       </div>
     </div>
@@ -383,7 +423,7 @@ footer{padding:2rem 2.5rem;border-top:1px solid var(--bd);display:flex;justify-c
 <!-- PROJECTS -->
 <section id="projects" style="background:var(--s1);border-top:1px solid var(--bd);border-bottom:1px solid var(--bd)">
   <div class="sec-inner">
-    <div class="sec-label rv">02 / Projects</div>
+    <div class="sec-label rv"><span class="en">02 / Projects</div>
     <h2 class="sec-title rv">Selected Work</h2>
     <div class="proj-controls rv">
       <button class="ftab on" onclick="doFilter('all',this)">All</button>
@@ -391,6 +431,7 @@ footer{padding:2rem 2.5rem;border-top:1px solid var(--bd);display:flex;justify-c
       <button class="ftab" onclick="doFilter('rag',this)">RAG / LLM</button>
       <button class="ftab" onclick="doFilter('cv',this)">Computer Vision</button>
       <button class="ftab" onclick="doFilter('de',this)">Data Engineering</button>
+      <button class="ftab" onclick="doFilter('ae',this)">Analytics Engineering</button>
     </div>
     <div class="proj-grid" id="proj-grid">
 
@@ -429,7 +470,48 @@ footer{padding:2rem 2.5rem;border-top:1px solid var(--bd);display:flex;justify-c
         </div>
       </div>
 
-      <!-- News Feed Ranking -->
+      <!-- dbt Analytics Stack -->
+      <div class="pcard span2 rv" data-cat="ae de">
+        <div class="pcard-visual" style="position:relative;overflow:hidden;height:200px;background:var(--s2)">
+          <canvas id="cv-dbt"></canvas>
+          <div class="pcard-visual-label">Live Stats · dbt CI/CD</div>
+          <div style="position:absolute;top:.75rem;left:.75rem;display:flex;gap:.5rem;flex-wrap:wrap">
+            <span style="font-family:var(--mono);font-size:.55rem;padding:.2rem .55rem;border-radius:3px;background:rgba(255,105,75,.15);border:1px solid rgba(255,105,75,.3);color:#FF694B">dbt 1.11</span>
+            <span style="font-family:var(--mono);font-size:.55rem;padding:.2rem .55rem;border-radius:3px;background:rgba(66,133,244,.12);border:1px solid rgba(66,133,244,.3);color:#60aee8">BigQuery</span>
+            <span style="font-family:var(--mono);font-size:.55rem;padding:.2rem .55rem;border-radius:3px;background:rgba(201,245,59,.08);border:1px solid rgba(201,245,59,.2);color:var(--lime)">94 tests ✓</span>
+            <span style="font-family:var(--mono);font-size:.55rem;padding:.2rem .55rem;border-radius:3px;background:rgba(45,212,191,.08);border:1px solid rgba(45,212,191,.2);color:var(--teal)">CI passing</span>
+          </div>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-tags">
+            <span class="ptag">dbt Core</span><span class="ptag">BigQuery</span><span class="ptag">Kimball Star Schema</span><span class="ptag">GitHub Actions CI/CD</span><span class="ptag">Looker Studio</span><span class="ptag">SQL</span><span class="ptag">Python</span>
+          </div>
+          <div class="pcard-title">End-to-End dbt Analytics Stack on Public E-Commerce Data</div>
+          <div class="pcard-desc">Production-grade Analytics Engineering stack on 100k+ Brazilian e-commerce orders (Olist dataset). Three-layer dbt pipeline (staging → intermediate → marts) implementing a Kimball star schema in BigQuery — 94 automated data quality tests, GitHub Actions CI/CD that validates every pull request, and a live Looker Studio dashboard covering delivery performance, customer segmentation (RFM), revenue attribution, and product analytics. Targets the fastest-growing role gap in the European market: Analytics Engineer.</div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin:1rem 0;padding:1rem;background:var(--s2);border-radius:8px;border:1px solid var(--bd)">
+            <div style="text-align:center">
+              <div style="font-family:var(--serif);font-size:1.5rem;color:var(--lime)">91.9%</div>
+              <div style="font-family:var(--mono);font-size:.55rem;color:var(--tx3);margin-top:.2rem">On-time delivery rate</div>
+            </div>
+            <div style="text-align:center">
+              <div style="font-family:var(--serif);font-size:1.5rem;color:var(--teal)">13</div>
+              <div style="font-family:var(--mono);font-size:.55rem;color:var(--tx3);margin-top:.2rem">dbt models (3 layers)</div>
+            </div>
+            <div style="text-align:center">
+              <div style="font-family:var(--serif);font-size:1.5rem;color:var(--violet)">94</div>
+              <div style="font-family:var(--mono);font-size:.55rem;color:var(--tx3);margin-top:.2rem">Automated data tests</div>
+            </div>
+          </div>
+          <div class="pcard-footer">
+            <span class="pcard-period">May 2026 · Analytics Engineering</span>
+            <div style="display:flex;gap:1rem">
+              <a href="https://datastudio.google.com/reporting/16a27174-33bf-4c1f-a222-6c61aa67cde1" target="_blank" class="pcard-link" style="color:var(--lime)">📊 Live Dashboard →</a>
+              <a href="https://github.com/adhishnanda/ecommerce-dbt-stack" target="_blank" class="pcard-link">GitHub →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="pcard span2 rv" data-cat="ml de">
         <div class="pcard-visual">
           <canvas id="cv-ranking"></canvas>
@@ -538,71 +620,98 @@ footer{padding:2rem 2.5rem;border-top:1px solid var(--bd);display:flex;justify-c
     <h2 class="sec-title rv">Professional History</h2>
     <div class="timeline">
 
+      <!-- UE Berlin -->
       <div class="titem current rv">
         <div class="t-period">Sep 2024 – Present</div>
         <div class="t-role">MSc Data Science Student</div>
         <div class="t-company">University of Europe for Applied Sciences · Berlin, Germany</div>
+        <div class="t-stack">
+          <span class="stag">PyTorch</span><span class="stag">Transformers</span><span class="stag">FastAPI</span><span class="stag">dbt</span><span class="stag">BigQuery</span><span class="stag">Airflow</span><span class="stag">Python</span><span class="stag">SQL</span><span class="stag">Docker</span><span class="stag">AWS</span>
+        </div>
         <ul class="t-bullets">
-          <li>Building end-to-end ML systems: recommender pipelines, multimodal emotion recognition, batch data engineering</li>
-          <li>Capstone: Emotion-Adaptive Multimodal CBT Assistant (PyTorch, Transformers, CNN-BiLSTM, late fusion)</li>
-          <li>Core modules: Machine Learning, Data Engineering, Cloud Computing (AWS), Data Visualization, NLP</li>
-        </ul>
+          <li>Building production-grade ML systems as independent projects alongside coursework: end-to-end recommender pipeline with live Streamlit demo, orchestrated Airflow ETL pipeline, and a dbt Analytics Stack on BigQuery (94 automated tests, GitHub Actions CI/CD, live Looker Studio dashboard)</li>
+          <li>Capstone Project: Emotion-Adaptive Multimodal CBT Assistant — late-fusion architecture fusing text (DistilBERT), audio (CNN-BiLSTM), and visual (ResNet) modalities; 54.1% accuracy and 40.8% macro-F1 on the MELD benchmark</li>
+          <li>MSc Thesis (in progress): Cost-Aware Governance-First RAG System with Adaptive LLM Routing — hybrid retrieval (BM25 + semantic search), RAGAS + LLM-as-judge evaluation, EU AI Act-aligned auditability; supervised by Prof. Dr. Iftikhar Ahmed</li>
+          <li>Core modules: Machine Learning · Data Engineering · Cloud Computing (AWS) · NLP · Data Visualisation · Marketing Analytics · Decision Support Systems · Prompt Engineering</li>
+          </ul>
       </div>
 
+      <!-- NIIT StackRoute -->
       <div class="titem rv">
         <div class="t-period">Feb 2022 – Sep 2024</div>
         <div class="t-role">Solutions Design Lead – Data &amp; Analytics</div>
         <div class="t-company">NIIT Ltd (StackRoute) · Bangalore, India</div>
+        <div class="t-stack">
+          <span class="stag">Python</span><span class="stag">SQL</span><span class="stag">Power BI</span><span class="stag">Airflow</span><span class="stag">scikit-learn</span><span class="stag">ETL</span><span class="stag">Pandas</span><span class="stag">Tableau</span>
+        </div>
         <ul class="t-bullets">
-          <li>Designed end-to-end ML case studies (regression, classification, clustering, NLP) adopted across enterprise training programmes for global clients</li>
-          <li>Built Power BI and SQL KPI dashboards for programme performance monitoring and reporting</li>
-          <li>Developed Python scripts for data transformation, validation, and automated reporting workflows</li>
-          <li>Contributed to presales solutioning — prepared analytics feasibility analyses and solution design documentation</li>
-        </ul>
+          <li>Led design and delivery of end-to-end ML case studies — regression, classification, clustering, and NLP — adopted across enterprise training programmes serving global Fortune 500 clients in BFSI, technology, and manufacturing sectors</li>
+          <li>Built Power BI dashboards and SQL-based KPI reporting systems for programme performance monitoring, improving reporting efficiency and executive visibility across concurrent client engagements</li>
+          <li>Engineered Python ETL pipelines for data transformation, validation, and automated reporting, reducing manual processing overhead and standardising data quality across deliverables</li>
+          <li>Drove presales analytics solutioning — authored feasibility analyses, stack recommendations, and ML solution design documentation directly used in enterprise client acquisition proposals</li>
+          <li>Acted as technical translator between data engineering and non-technical business stakeholders — distilling complex model outputs into clear, decision-ready insights for enterprise clients and senior management</li>
+          </ul>
       </div>
 
+      <!-- NIIT BI Intern -->
       <div class="titem rv">
         <div class="t-period">Jul 2021 – Jan 2022</div>
         <div class="t-role">Business Intelligence / Data Analyst Intern</div>
         <div class="t-company">NIIT Ltd (Learning Science &amp; Technology) · Gurugram, India</div>
+        <div class="t-stack">
+          <span class="stag">Power BI</span><span class="stag">Python</span><span class="stag">SQL</span><span class="stag">ETL</span>
+        </div>
         <ul class="t-bullets">
-          <li>Automated data workflows using Python scripting, reducing manual data processing effort</li>
-          <li>Developed interactive Power BI dashboards improving KPI transparency across departments</li>
-          <li>Validated performance metrics via structured SQL queries and standardized documentation</li>
-        </ul>
+          <li>Developed interactive Power BI dashboards for KPI transparency and executive reporting across departments in the Learning Science &amp; Technology division</li>
+          <li>Automated recurring data workflows via Python scripting, eliminating manual processing steps from reporting cycles and improving data team throughput</li>
+          <li>Validated programme performance metrics through structured SQL queries and maintained standardised documentation for audit readiness and knowledge transfer</li>
+          <li>Supported analytics team in building data quality checks, reporting templates, and learning operations dashboards across the organisation</li>
+          </ul>
       </div>
 
+      <!-- Weaddo -->
       <div class="titem rv">
         <div class="t-period">Mar 2021 – May 2021</div>
         <div class="t-role">Marketing Data Analyst Intern</div>
         <div class="t-company">Weaddo · Gurugram, India</div>
+        <div class="t-stack">
+          <span class="stag">Python</span><span class="stag">Tableau</span><span class="stag">Regression</span><span class="stag">Funnel Analytics</span>
+        </div>
         <ul class="t-bullets">
-          <li>Performed descriptive and predictive analysis on digital marketing campaign datasets</li>
-          <li>Computed KPIs including ROAS, CPA, and conversion rate using Python</li>
-          <li>Built automated Tableau dashboards for client performance monitoring and decision support</li>
-        </ul>
+          <li>Applied regression analysis and funnel analytics to multi-channel digital marketing datasets to identify conversion drivers and campaign optimisation opportunities</li>
+          <li>Computed and tracked core performance KPIs — ROAS, CPA, CAC, and conversion rate — using Python, providing data-driven evidence for campaign budget allocation decisions</li>
+          <li>Built automated Tableau dashboards for real-time client campaign monitoring and executive performance reporting</li>
+          </ul>
       </div>
 
+      <!-- AIISH -->
       <div class="titem rv">
         <div class="t-period">May 2019 – Jul 2019</div>
         <div class="t-role">Data Research Analyst Intern</div>
         <div class="t-company">Amity Institute of Integrative Science and Health (AIISH) · Gurugram, India</div>
+        <div class="t-stack">
+          <span class="stag">Python</span><span class="stag">CNN</span><span class="stag">SQL</span><span class="stag">R</span><span class="stag">Tableau</span>
+        </div>
         <ul class="t-bullets">
-          <li>Implemented CNN-based image classification model for breast cancer detection using Python</li>
-          <li>Extracted, cleaned, and analysed clinical datasets using Python, SQL, and R</li>
-          <li>Developed Tableau dashboards to communicate analytical findings to research teams</li>
-        </ul>
+          <li>Implemented a CNN-based image classification pipeline for breast cancer detection in clinical imaging datasets — work contributed to a Springer-published peer-reviewed paper</li>
+          <li>Extracted, cleaned, and processed clinical datasets using Python, SQL, and R; handled class imbalance, feature normalisation, and data quality issues for medical ML applications</li>
+          <li>Developed Tableau dashboards to visualise analytical findings and communicate research results to clinical teams with no programming background</li>
+          </ul>
       </div>
 
+      <!-- Anandalal Electric -->
       <div class="titem rv">
         <div class="t-period">Jan 2017 – Jun 2017</div>
         <div class="t-role">Academic Researcher</div>
         <div class="t-company">Anandalal Electric Private Limited · Bengaluru, India</div>
+        <div class="t-stack">
+          <span class="stag">Python</span><span class="stag">Time-Series</span><span class="stag">Regression</span>
+        </div>
         <ul class="t-bullets">
-          <li>Developed predictive model to estimate Li-Ion battery State-of-Charge using Python — ~90% accuracy</li>
-          <li>Performed time-series analysis for industrial load forecasting and energy demand prediction</li>
-          <li>Published findings in Asian Journal of Applied Science and Technology (2017)</li>
-        </ul>
+          <li>Built a predictive model for Li-Ion battery State-of-Charge (SoC) estimation using time-series regression in Python, achieving approximately 90% accuracy on validation data — results published in AJAST 2017</li>
+          <li>Conducted time-series analysis for industrial load forecasting and energy demand prediction in electric vehicle charging contexts</li>
+          <li>Co-authored two research publications in the Asian Journal of Applied Science and Technology (AJAST) covering SoC estimation and IoT-based smart vehicle systems</li>
+          </ul>
       </div>
 
     </div>
@@ -615,30 +724,62 @@ footer{padding:2rem 2.5rem;border-top:1px solid var(--bd);display:flex;justify-c
     <div class="sec-label rv">04 / Education</div>
     <h2 class="sec-title rv">Academic Background</h2>
     <div class="edu-grid">
+
+      <!-- UE Berlin MSc -->
       <div class="edu-card featured rv">
         <div class="edu-degree">MSc Data Science · 2024–2026 (Expected)</div>
         <div class="edu-school">University of Europe for Applied Sciences, Berlin, Germany</div>
         <div class="edu-period">Sep 2024 – Aug 2026</div>
-        <div class="edu-note">Machine Learning · Data Engineering · Cloud Computing (AWS) · NLP · Data Visualization · Marketing Analytics. Capstone: Emotion-Adaptive Multimodal CBT Assistant (PyTorch, Transformers, CNN-BiLSTM, late fusion — 54.1% accuracy on MELD benchmark). Thesis: Cost-Aware Governance-First RAG System with Adaptive LLM Routing — EU AI Act aligned. Interdisciplinary electives in AI/ML and Project Management.</div>
+        <div class="edu-modules">
+          <span class="emod">Machine Learning</span><span class="emod">Data Engineering</span><span class="emod">Cloud Computing (AWS)</span><span class="emod">NLP</span><span class="emod">Data Visualisation</span><span class="emod">Marketing Analytics</span><span class="emod">Decision Support Systems</span><span class="emod">Prompt Engineering</span><span class="emod">Cyber Security</span><span class="emod">Project Management</span>
+        </div>
+        <div class="edu-highlight">
+          <strong>Capstone:</strong> Emotion-Adaptive Multimodal CBT Assistant — late-fusion architecture across text (DistilBERT), audio (CNN-BiLSTM), and visual (ResNet) modalities. 54.1% accuracy &amp; 40.8% macro-F1 on the MELD benchmark.
+        </div>
+        <div class="edu-highlight" style="margin-top:.4rem">
+          <strong>MSc Thesis (in progress):</strong> Cost-Aware Governance-First RAG System with Adaptive LLM Routing — hybrid retrieval (BM25 + semantic search), automated evaluation via RAGAS &amp; LLM-as-judge, counterfactual routing policy comparison, EU AI Act-aligned governance &amp; auditability mechanisms. Deployed via FastAPI + Docker. Supervisor: Prof. Dr. Iftikhar Ahmed.
+        </div>
       </div>
+
+      <!-- LMU Munich -->
       <div class="edu-card rv">
         <div class="edu-degree">Postgraduate Summer Programme · 2019</div>
         <div class="edu-school">Ludwig-Maximilians-Universität München (LMU), Germany</div>
         <div class="edu-period">Aug 2019</div>
-        <div class="edu-note">Machine Learning &amp; Data Analytics applied to financial datasets. Supervised and unsupervised ML, clustering, prediction, and data visualization in Python.</div>
+        <div class="edu-modules">
+          <span class="emod">Supervised ML</span><span class="emod">Unsupervised ML</span><span class="emod">Clustering</span><span class="emod">Prediction</span><span class="emod">Data Visualisation</span>
+        </div>
+        <div class="edu-highlight">
+          Applied ML and Data Analytics to real-world financial datasets at one of Germany's leading research universities. Covered regression, clustering, prediction, and visualisation in Python — providing early exposure to academic research methodology in an international environment.
+        </div>
       </div>
+
+      <!-- Amity MTech -->
       <div class="edu-card rv">
         <div class="edu-degree">MTech Data Science · 2018–2020</div>
         <div class="edu-school">Amity University, Gurugram, India</div>
         <div class="edu-period">Aug 2018 – Jun 2020</div>
-        <div class="edu-note">Data Mining, Predictive Analytics, NLP, Big Data Technologies, Bayesian Networks. Thesis: Transaction Scheduling using Machine Learning.</div>
+        <div class="edu-modules">
+          <span class="emod">Data Mining</span><span class="emod">Predictive Analytics</span><span class="emod">NLP</span><span class="emod">Big Data</span><span class="emod">Bayesian Networks</span><span class="emod">Data Warehousing</span><span class="emod">OLAP</span>
+        </div>
+        <div class="edu-highlight">
+          <strong>Thesis:</strong> Transaction Scheduling using Machine Learning — modelled scheduling optimisation strategies via supervised learning; improved prediction performance through structured feature engineering. Research output: two IEEE publications (OLAP survey, ML in scheduling).
+        </div>
       </div>
+
+      <!-- MVJ BE -->
       <div class="edu-card rv">
         <div class="edu-degree">BE Electronics &amp; Communication · 2013–2017</div>
-        <div class="edu-school">MVJ College of Engineering, Bangalore, India</div>
+        <div class="edu-school">MVJ College of Engineering / Visvesvaraya Technological University, Bengaluru, India</div>
         <div class="edu-period">Aug 2013 – Jun 2017</div>
-        <div class="edu-note">First Class. Engineering Mathematics, Signals &amp; Systems, DSP. Thesis: State-of-Charge Estimation of Li-Ion Batteries in Electric Vehicles.</div>
+        <div class="edu-modules">
+          <span class="emod">Engineering Mathematics</span><span class="emod">Signals &amp; Systems</span><span class="emod">DSP</span><span class="emod">C / C++</span><span class="emod">Operating Systems</span>
+        </div>
+        <div class="edu-highlight">
+          Graduated First Class. Built strong analytical and mathematical foundations — linear algebra, probability, signal theory — directly underpinning current ML and data science work. Final Year Project: SoC Estimation of Li-Ion Batteries in Electric Vehicles using ML, published in AJAST 2017.
+        </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -689,7 +830,7 @@ footer{padding:2rem 2.5rem;border-top:1px solid var(--bd);display:flex;justify-c
 </section>
 
 <!-- CERTIFICATIONS -->
-<section style="background:var(--s1);border-top:1px solid var(--bd);border-bottom:1px solid var(--bd)">
+<section id="certifications" style="background:var(--s1);border-top:1px solid var(--bd);border-bottom:1px solid var(--bd)">
   <div class="sec-inner">
     <div class="sec-label rv">06 / Certifications</div>
     <h2 class="sec-title rv">Credentials</h2>
@@ -755,9 +896,10 @@ footer{padding:2rem 2.5rem;border-top:1px solid var(--bd);display:flex;justify-c
     <div class="contact-box rv">
       <div class="sec-label" style="justify-content:center;margin-bottom:1rem">07 / Contact</div>
       <h2 class="contact-heading">Let's Build Something Together</h2>
-      <p class="contact-sub">Actively seeking <strong style="color:var(--lime)">full-time junior roles, working student positions &amp; internships</strong> in Data Analytics, BI, Data Science, Data Engineering, and Applied ML — across Germany and EU. EU Blue Card eligible. Immediate start available.</p>
+      <p class="contact-sub">Actively seeking <strong style="color:var(--lime)">full-time junior roles, working student positions &amp; internships</strong> in Data Analytics, BI, Data Science, Data Engineering, and Applied ML — across Germany and EU.<br><span style="font-family:var(--mono);font-size:.72rem;color:var(--tx3);margin-top:.5rem;display:inline-block">Work authorisation: available · EU Blue Card eligible · English: C2 · German: A2 (actively learning)</span></p>
       <div class="contact-links">
-        <a href="mailto:adhish.nanda@gmail.com" class="contact-link primary">✉ adhish.nanda@gmail.com</a>
+        <a href="mailto:adhish.nanda@gmail.com?subject=CV%20Request%20—%20[Role%20%2F%20Company]&body=Hi%20Adhish%2C%0A%0AI%27d%20like%20to%20request%20your%20CV%20for%20the%20[Role]%20position%20at%20[Company].%0A%0AThanks" class="contact-link primary">📄 Request CV</a>
+        <a href="mailto:adhish.nanda@gmail.com" class="contact-link">✉ Email</a>
         <a href="https://www.linkedin.com/in/adhishnanda" target="_blank" class="contact-link">LinkedIn ↗</a>
         <a href="https://github.com/adhishnanda" target="_blank" class="contact-link">GitHub ↗</a>
         <a href="tel:+4916247585959" class="contact-link">📞 +49 162 4758595</a>
@@ -767,11 +909,12 @@ footer{padding:2rem 2.5rem;border-top:1px solid var(--bd);display:flex;justify-c
 </section>
 
 <footer>
-  <div class="footer-copy">© 2026 Adhish Nanda · Berlin, Germany</div>
+  <div class="footer-copy">© 2026 Adhish Nanda · Berlin, Germany · Work authorisation available · EU Blue Card eligible</div>
   <div class="footer-made">adhishnanda.github.io</div>
 </footer>
 
 <script>
+
 // ─── CURSOR ───────────────────────────────────────────────────
 const cur=document.getElementById('cur'),ring=document.getElementById('cur-ring');
 let mx=0,my=0,rx=0,ry=0;
@@ -918,7 +1061,88 @@ animCanvas('cv-multimodal', (ctx,c,t)=>{
   ctx.fillText('40.8% F1', W-100, 38);
 });
 
-// 3. Gesture — skeleton hand animation
+// 6. dbt Star Schema / DAG visualization
+animCanvas('cv-dbt', (ctx,c,t)=>{
+  ctx.clearRect(0,0,c.width,c.height);
+  const W=c.width, H=c.height;
+
+  // Layers
+  const layers=[
+    {label:'Sources',x:0.1,nodes:[{y:0.3,col:'#2dd4bf',name:'orders'},{y:0.55,col:'#2dd4bf',name:'customers'},{y:0.8,col:'#2dd4bf',name:'products'}]},
+    {label:'Staging',x:0.3,nodes:[{y:0.3,col:'#a78bfa',name:'stg_orders'},{y:0.55,col:'#a78bfa',name:'stg_customers'},{y:0.8,col:'#a78bfa',name:'stg_products'}]},
+    {label:'Intermediate',x:0.55,nodes:[{y:0.35,col:'#fbbf24',name:'int_orders'},{y:0.7,col:'#fbbf24',name:'int_customers'}]},
+    {label:'Marts',x:0.8,nodes:[{y:0.25,col:'#c9f53b',name:'fct_orders'},{y:0.5,col:'#c9f53b',name:'dim_customers'},{y:0.75,col:'#c9f53b',name:'dim_products'}]},
+  ];
+
+  const edges=[
+    [0,0,1,0],[0,1,1,1],[0,2,1,2],   // sources → staging
+    [1,0,2,0],[1,1,2,0],[1,2,2,1],   // staging → intermediate
+    [2,0,3,0],[2,0,3,1],[2,1,3,1],[2,1,3,2] // intermediate → marts
+  ];
+
+  // Draw edges
+  edges.forEach(([la,na,lb,nb],i)=>{
+    const a=layers[la].nodes[na], b=layers[lb].nodes[nb];
+    const ax=layers[la].x*W, ay=a.y*H;
+    const bx=layers[lb].x*W, by=b.y*H;
+    const prog=(Math.sin(t*1.8+i*0.4)*.5+.5);
+    ctx.strokeStyle=`rgba(255,255,255,${0.05+prog*0.1})`;
+    ctx.lineWidth=1.2;
+    ctx.setLineDash([3,5]);
+    ctx.lineDashOffset=-t*12;
+    ctx.beginPath();
+    ctx.moveTo(ax+10,ay);
+    ctx.bezierCurveTo(ax+40,ay,bx-40,by,bx-10,by);
+    ctx.stroke();
+    ctx.setLineDash([]);
+  });
+
+  // Draw nodes
+  layers.forEach((layer,li)=>{
+    // Layer label
+    ctx.fillStyle='rgba(144,149,168,0.4)';
+    ctx.font='7.5px "DM Mono",monospace';
+    ctx.textAlign='center';
+    ctx.fillText(layer.label, layer.x*W, H-8);
+
+    layer.nodes.forEach((n,ni)=>{
+      const px=layer.x*W, py=n.y*H;
+      const pulse=Math.sin(t*2+li*0.8+ni*0.4)*.5+.5;
+      // glow ring
+      ctx.beginPath();ctx.arc(px,py,12+pulse*3,0,Math.PI*2);
+      ctx.fillStyle=n.col+'18';ctx.fill();
+      // node circle
+      ctx.beginPath();ctx.arc(px,py,8,0,Math.PI*2);
+      ctx.fillStyle=n.col+'22';ctx.fill();
+      ctx.strokeStyle=n.col+'99';ctx.lineWidth=1.5;ctx.stroke();
+      // center dot
+      ctx.beginPath();ctx.arc(px,py,3,0,Math.PI*2);
+      ctx.fillStyle=n.col;ctx.fill();
+      // label
+      ctx.fillStyle='rgba(144,149,168,0.75)';
+      ctx.font='7px "DM Mono",monospace';
+      ctx.textAlign='center';
+      ctx.fillText(n.name,px,py-14);
+    });
+  });
+
+  // Test badge
+  const testPulse=Math.abs(Math.sin(t*1.2));
+  ctx.fillStyle=`rgba(201,245,59,${0.06+testPulse*0.06})`;
+  ctx.beginPath();roundRect(ctx,W-118,8,110,26,5);ctx.fill();
+  ctx.strokeStyle=`rgba(201,245,59,${0.2+testPulse*0.15})`;ctx.lineWidth=1;
+  ctx.beginPath();roundRect(ctx,W-118,8,110,26,5);ctx.stroke();
+  ctx.fillStyle='#c9f53b';
+  ctx.font='bold 9px "DM Mono",monospace';
+  ctx.textAlign='left';
+  ctx.fillText('✓ 94 tests passing', W-112, 25);
+
+  ctx.textAlign='left';
+  ctx.fillStyle='rgba(144,149,168,0.45)';
+  ctx.font='9px "DM Mono",monospace';
+  ctx.fillText('// Kimball Star Schema · dbt Core 1.11 · BigQuery', 10, 18);
+});
+
 animCanvas('cv-gesture', (ctx,c,t)=>{
   ctx.clearRect(0,0,c.width,c.height);
   const cx=c.width/2, cy=c.height/2;
