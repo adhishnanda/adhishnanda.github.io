@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study: Cost-Aware Governance RAG · Adhish Nanda</title>
+<meta name="description" content="How I built a retrieval system for AI-governance questions that stays accurate while cutting large language model cost by 72.2 percent through adaptive routing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..500&family=Hanken+Grotesk:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d0e10;--s1:#141518;--s2:#1a1c20;--s3:#212328;--line:#26282d;--line2:#33363c;
+  --tx:#ededea;--tx2:#a4a7a2;--tx3:#6d716c;
+  --acc:#8cc7b1;--acc-hi:#a8d6c4;--acc-soft:rgba(140,199,177,.09);--acc-line:rgba(140,199,177,.22);
+  --sig:#e0b37a;--sig-soft:rgba(224,179,122,.12);
+  --serif:'Fraunces',Georgia,serif;--sans:'Hanken Grotesk',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;
+  --r:14px;--r-lg:22px;--ease:cubic-bezier(.2,.7,.2,1);--wrap:820px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--acc);text-decoration:none}
+::selection{background:var(--acc);color:#0d0e10}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:3px}
+body::before{content:'';position:fixed;inset:0 0 auto;height:60vh;z-index:0;pointer-events:none;background:radial-gradient(120% 90% at 15% 0%,rgba(140,199,177,.05),transparent 55%)}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 clamp(1.25rem,5vw,2rem);position:relative;z-index:1}
+
+.topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:1rem clamp(1.25rem,5vw,2rem);background:rgba(13,14,16,.72);backdrop-filter:blur(16px) saturate(1.2);border-bottom:1px solid var(--line)}
+.back{font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;color:var(--tx2);display:inline-flex;align-items:center;gap:.5rem;transition:color .2s}
+.back:hover{color:var(--tx)}
+.topbar .logo{font-family:var(--serif);font-size:1.05rem;color:var(--tx)}
+.topbar .logo span{color:var(--acc)}
+
+.hero{padding:clamp(3rem,7vw,5rem) 0 2.5rem}
+.eyebrow{font-family:var(--mono);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);display:inline-flex;align-items:center;gap:.7rem;margin-bottom:1.2rem}
+.eyebrow::before{content:'';width:26px;height:1px;background:var(--acc-line)}
+h1{font-family:var(--serif);font-weight:440;font-size:clamp(2.3rem,6vw,3.6rem);line-height:1.05;letter-spacing:-.02em;margin-bottom:1rem}
+.lede{font-size:1.15rem;color:var(--tx2);max-width:60ch;margin-bottom:2rem}
+.meta{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.6rem}
+.mtag{font-family:var(--mono);font-size:.64rem;padding:.32rem .7rem;border-radius:7px;border:1px solid var(--line);color:var(--tx2);background:var(--s1)}
+.hero-links{display:flex;flex-wrap:wrap;gap:.7rem}
+.btn{font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;padding:.65rem 1.15rem;border-radius:9px;display:inline-flex;align-items:center;gap:.5rem;transition:transform .2s var(--ease),background .2s,border-color .2s,color .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-p{background:var(--acc);color:#0d0e10;font-weight:500}
+.btn-p:hover{background:var(--acc-hi)}
+.btn-g{border:1px solid var(--line2);color:var(--tx2)}
+.btn-g:hover{border-color:var(--acc-line);color:var(--tx)}
+
+article{padding-bottom:4rem}
+h2{font-family:var(--serif);font-weight:460;font-size:clamp(1.5rem,3.5vw,2rem);letter-spacing:-.01em;margin:2.6rem 0 .9rem}
+article p{color:var(--tx2);font-size:1.04rem;margin-bottom:1.1rem}
+article p strong{color:var(--tx);font-weight:500}
+.divider{height:1px;background:var(--line);margin:2.4rem 0;border:none}
+
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.6rem 0}
+.metric{background:var(--s1);border:1px solid var(--line);border-radius:var(--r);padding:1.4rem 1.2rem;text-align:center}
+.metric-n{font-family:var(--serif);font-size:2.1rem;font-weight:500;line-height:1}
+.metric-n.a{color:var(--acc)}.metric-n.b{color:var(--sig)}.metric-n.c{color:var(--tx)}
+.metric-l{font-family:var(--mono);font-size:.6rem;letter-spacing:.03em;color:var(--tx3);margin-top:.6rem;line-height:1.5}
+
+.callout{background:var(--s1);border:1px solid var(--line);border-left:3px solid var(--sig);border-radius:var(--r);padding:1.3rem 1.5rem;margin:1.6rem 0}
+.callout .k{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sig);margin-bottom:.6rem}
+.callout p{margin:0;color:var(--tx2)}
+
+.foot{border-top:1px solid var(--line);padding:2rem 0;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.foot a{font-family:var(--mono);font-size:.72rem;color:var(--acc)}
+.foot span{font-family:var(--mono);font-size:.62rem;color:var(--tx3)}
+@media(max-width:560px){.metrics{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="index.html" class="back">← Back to portfolio</a>
+  <a href="index.html" class="logo">Adhish<span>.</span></a>
+</div>
+
+<header class="hero wrap">
+  <div class="eyebrow">Case study · MSc Thesis</div>
+  <h1>Answering governance questions without overspending on AI</h1>
+  <p class="lede">A retrieval system for AI-governance questions that stays accurate while spending as little as possible on large language models.</p>
+  <div class="meta">
+    <span class="mtag">Apr 2026 – Aug 2026</span>
+    <span class="mtag">Solo MSc thesis</span>
+    <span class="mtag">Retrieval + LLM routing</span>
+    <span class="mtag">FastAPI · Docker · FAISS · RAGAS</span>
+  </div>
+  <div class="hero-links">
+    <a href="https://github.com/adhishnanda/cost-aware-governance-rag" target="_blank" rel="noopener" class="btn btn-p">View on GitHub →</a>
+    <a href="index.html#projects" class="btn btn-g">All projects</a>
+  </div>
+</header>
+
+<article class="wrap">
+  <h2>The problem</h2>
+  <p>Organisations now have to answer detailed questions against overlapping AI regulations: the EU AI Act, GDPR, the NIST AI Risk Management Framework, and ISO/IEC 42001. Getting an answer right matters, but so does the cost of getting it.</p>
+  <p>If every question is sent to a large, expensive model, the bill grows fast, and most questions do not actually need that much power. I wanted to find out whether a system could decide, question by question, how much model to use, without giving up answer quality.</p>
+
+  <h2>The approach</h2>
+  <p>I built the retrieval layer from scratch rather than reaching for an off-the-shelf framework, so I understood every part of it and could defend every design choice. Retrieval works in three stages. A symbolic exact-match pass catches precise terms like article numbers. A weighted mix of BM25 keyword search and FAISS vector search finds the broader context. A cross-encoder then reranks the shortlist so the most relevant passages rise to the top.</p>
+  <p>On top of retrieval sits a rule-based router. It reads each question and assigns it to a cost tier: a smaller local model for routine questions, or a larger one when the question needs it. Both models run locally through Ollama, so there are no per-call API fees. The whole system runs behind a FastAPI service in Docker, with a Streamlit dashboard for watching cost and quality side by side.</p>
+
+  <h2>How I measured it</h2>
+  <p>I did not want to trust a single number. I built a gold evaluation set of 25 carefully annotated questions, then measured retrieval quality with context precision, scored answers with both an LLM-as-judge and RAGAS, and ran a counterfactual analysis comparing the router's choices against an oracle that always knows the cheapest correct tier.</p>
+
+  <div class="metrics">
+    <div class="metric"><div class="metric-n a">0.97</div><div class="metric-l">Context precision on the gold set</div></div>
+    <div class="metric"><div class="metric-n b">72.2%</div><div class="metric-l">Lower generation cost vs always-expensive</div></div>
+    <div class="metric"><div class="metric-n c">109.4%</div><div class="metric-l">Of baseline quality retained</div></div>
+  </div>
+  <p>The quality figure above 100 percent is not a typo. The routed system was slightly better than always using the expensive model on this set, because steering simpler questions to the smaller model avoided some overlong, meandering answers.</p>
+
+  <div class="callout">
+    <div class="k">One honest finding</div>
+    <p>The router matched the oracle's exact choice about one time in five, which sounds low in isolation. Looking closer, the reason is simple: on this corpus the cheap tier was almost always the right call, so even a router that leans cheap lands close to optimal on both cost and quality. It is a good reminder that a headline accuracy number can hide what is really going on, and I would rather explain that than bury it.</p>
+  </div>
+
+  <h2>What I would do differently</h2>
+  <p>I would widen the evaluation set well beyond 25 questions so the routing signal is stronger and more general. I would add a learned router alongside the rule-based one and compare them fairly. And I would test the system on live, changing regulation text rather than a fixed snapshot, since real governance work never sits still.</p>
+
+  <hr class="divider">
+  <p><strong>Stack:</strong> Python, FastAPI, Docker, FAISS, BM25, cross-encoder reranking, Ollama (Llama 3 8B and phi3:mini), RAGAS, Streamlit. Supervised by Prof. Dr. Iftikhar Ahmed and Prof. Dr. Talha Ali Khan at the University of Europe for Applied Sciences.</p>
+</article>
+
+<div class="wrap">
+  <div class="foot">
+    <a href="case-dbt.html">Next case study: dbt analytics stack →</a>
+    <span>© 2026 Adhish Nanda · Berlin</span>
+  </div>
+</div>
+
+</body>
+</html>

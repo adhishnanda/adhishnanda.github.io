@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study: dbt Analytics Stack · Adhish Nanda</title>
+<meta name="description" content="How I turned 100,000-plus raw e-commerce orders into a tested, automated dbt and BigQuery analytics pipeline with a live dashboard.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..500&family=Hanken+Grotesk:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d0e10;--s1:#141518;--s2:#1a1c20;--s3:#212328;--line:#26282d;--line2:#33363c;
+  --tx:#ededea;--tx2:#a4a7a2;--tx3:#6d716c;
+  --acc:#8cc7b1;--acc-hi:#a8d6c4;--acc-soft:rgba(140,199,177,.09);--acc-line:rgba(140,199,177,.22);
+  --sig:#e0b37a;--sig-soft:rgba(224,179,122,.12);
+  --serif:'Fraunces',Georgia,serif;--sans:'Hanken Grotesk',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;
+  --r:14px;--r-lg:22px;--ease:cubic-bezier(.2,.7,.2,1);--wrap:820px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--acc);text-decoration:none}
+::selection{background:var(--acc);color:#0d0e10}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:3px}
+body::before{content:'';position:fixed;inset:0 0 auto;height:60vh;z-index:0;pointer-events:none;background:radial-gradient(120% 90% at 15% 0%,rgba(140,199,177,.05),transparent 55%)}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 clamp(1.25rem,5vw,2rem);position:relative;z-index:1}
+
+.topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:1rem clamp(1.25rem,5vw,2rem);background:rgba(13,14,16,.72);backdrop-filter:blur(16px) saturate(1.2);border-bottom:1px solid var(--line)}
+.back{font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;color:var(--tx2);display:inline-flex;align-items:center;gap:.5rem;transition:color .2s}
+.back:hover{color:var(--tx)}
+.topbar .logo{font-family:var(--serif);font-size:1.05rem;color:var(--tx)}
+.topbar .logo span{color:var(--acc)}
+
+.hero{padding:clamp(3rem,7vw,5rem) 0 2.5rem}
+.eyebrow{font-family:var(--mono);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);display:inline-flex;align-items:center;gap:.7rem;margin-bottom:1.2rem}
+.eyebrow::before{content:'';width:26px;height:1px;background:var(--acc-line)}
+h1{font-family:var(--serif);font-weight:440;font-size:clamp(2.3rem,6vw,3.6rem);line-height:1.05;letter-spacing:-.02em;margin-bottom:1rem}
+.lede{font-size:1.15rem;color:var(--tx2);max-width:60ch;margin-bottom:2rem}
+.meta{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.6rem}
+.mtag{font-family:var(--mono);font-size:.64rem;padding:.32rem .7rem;border-radius:7px;border:1px solid var(--line);color:var(--tx2);background:var(--s1)}
+.hero-links{display:flex;flex-wrap:wrap;gap:.7rem}
+.btn{font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;padding:.65rem 1.15rem;border-radius:9px;display:inline-flex;align-items:center;gap:.5rem;transition:transform .2s var(--ease),background .2s,border-color .2s,color .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-p{background:var(--acc);color:#0d0e10;font-weight:500}
+.btn-p:hover{background:var(--acc-hi)}
+.btn-g{border:1px solid var(--line2);color:var(--tx2)}
+.btn-g:hover{border-color:var(--acc-line);color:var(--tx)}
+
+article{padding-bottom:4rem}
+h2{font-family:var(--serif);font-weight:460;font-size:clamp(1.5rem,3.5vw,2rem);letter-spacing:-.01em;margin:2.6rem 0 .9rem}
+article p{color:var(--tx2);font-size:1.04rem;margin-bottom:1.1rem}
+article p strong{color:var(--tx);font-weight:500}
+.divider{height:1px;background:var(--line);margin:2.4rem 0;border:none}
+
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.6rem 0}
+.metric{background:var(--s1);border:1px solid var(--line);border-radius:var(--r);padding:1.4rem 1.2rem;text-align:center}
+.metric-n{font-family:var(--serif);font-size:2.1rem;font-weight:500;line-height:1}
+.metric-n.a{color:var(--acc)}.metric-n.b{color:var(--sig)}.metric-n.c{color:var(--tx)}
+.metric-l{font-family:var(--mono);font-size:.6rem;letter-spacing:.03em;color:var(--tx3);margin-top:.6rem;line-height:1.5}
+
+.foot{border-top:1px solid var(--line);padding:2rem 0;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.foot a{font-family:var(--mono);font-size:.72rem;color:var(--acc)}
+.foot span{font-family:var(--mono);font-size:.62rem;color:var(--tx3)}
+@media(max-width:560px){.metrics{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="index.html" class="back">← Back to portfolio</a>
+  <a href="index.html" class="logo">Adhish<span>.</span></a>
+</div>
+
+<header class="hero wrap">
+  <div class="eyebrow">Case study · Analytics Engineering</div>
+  <h1>Turning raw orders into numbers a business can trust</h1>
+  <p class="lede">A tested, automated analytics pipeline that turns more than 100,000 raw e-commerce orders into a dashboard a business team can actually use.</p>
+  <div class="meta">
+    <span class="mtag">May 2026</span>
+    <span class="mtag">Analytics Engineering</span>
+    <span class="mtag">dbt · BigQuery</span>
+    <span class="mtag">GitHub Actions CI</span>
+  </div>
+  <div class="hero-links">
+    <a href="https://datastudio.google.com/reporting/16a27174-33bf-4c1f-a222-6c61aa67cde1" target="_blank" rel="noopener" class="btn btn-p">Live dashboard →</a>
+    <a href="https://github.com/adhishnanda/ecommerce-dbt-stack" target="_blank" rel="noopener" class="btn btn-g">View on GitHub ↗</a>
+  </div>
+</header>
+
+<article class="wrap">
+  <h2>The problem</h2>
+  <p>Raw operational data is rarely ready for analysis. Orders, customers, payments, and reviews arrive in separate tables with inconsistent keys and no guarantees about quality. A single clever query might answer one question today, but it does not give a team something they can rely on tomorrow.</p>
+  <p>I used the public Olist dataset of more than 100,000 Brazilian e-commerce orders to build the kind of analytics engineering stack a company would actually run in production, where the goal is a reliable, repeatable pipeline that other people can trust and extend.</p>
+
+  <h2>The approach</h2>
+  <p>I modelled the data with dbt in three layers. Staging cleans and standardises each source. Intermediate joins and reshapes them. Marts expose a Kimball star schema, with a central fct_orders table and dim_customers and dim_products around it. Fifteen models in total. Everything lives in BigQuery in the Berlin region, which keeps the data inside the EU.</p>
+
+  <h2>Making the numbers trustworthy</h2>
+  <p>A model is only useful if people believe the numbers behind it. I wrote 94 automated tests covering not-null and unique constraints, accepted values, referential integrity, and a few custom checks specific to this data. GitHub Actions runs every test on every pull request, so a change that quietly breaks the data cannot be merged by accident.</p>
+  <p>I also documented the design decisions in the repository, the star schema rationale, the layer separation, and the materialisation strategy, so the reasoning is written down rather than locked in my head.</p>
+
+  <div class="metrics">
+    <div class="metric"><div class="metric-n a">15</div><div class="metric-l">dbt models across 3 layers</div></div>
+    <div class="metric"><div class="metric-n c">94</div><div class="metric-l">Automated tests, run in CI</div></div>
+    <div class="metric"><div class="metric-n b">91.9%</div><div class="metric-l">On-time delivery rate surfaced</div></div>
+  </div>
+  <p>The live Looker Studio dashboard connects straight to the marts layer and covers revenue trends, delivery performance, geography, and top product categories, so the output is something a non-technical stakeholder can read at a glance.</p>
+
+  <h2>What I would do differently</h2>
+  <p>I would add incremental models so the pipeline only processes new orders instead of rebuilding everything each run. I would layer in freshness and volume tests to catch upstream gaps early. And I would add a semantic layer so business users can self-serve common metrics without writing SQL.</p>
+
+  <hr class="divider">
+  <p><strong>Stack:</strong> dbt Core 1.11, BigQuery (europe-west10), SQL, Python, GitHub Actions, Looker Studio. Kimball star schema, three-layer model, tested and deployed through continuous integration.</p>
+</article>
+
+<div class="wrap">
+  <div class="foot">
+    <a href="case-thesis.html">Next case study: governance-first RAG system →</a>
+    <span>© 2026 Adhish Nanda · Berlin</span>
+  </div>
+</div>
+
+</body>
+</html>

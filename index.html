@@ -324,7 +324,7 @@ footer{border-top:1px solid var(--line);padding:1.8rem 0}
     <li><a href="#publications">Research</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="mailto:adhish.nanda@gmail.com?subject=CV%20request%20for%20%5BRole%5D%20at%20%5BCompany%5D&body=Hi%20Adhish%2C%0A%0AWe%27d%20like%20to%20request%20your%20CV%20for%20the%20%5BRole%5D%20position%20at%20%5BCompany%5D.%0A%0AThanks" class="nav-cta">Request CV</a>
+  <a href="Adhish_Nanda_CV.pdf" download class="nav-cta">Download CV</a>
 </nav>
 
 <!-- HERO -->
@@ -343,7 +343,8 @@ footer{border-top:1px solid var(--line);padding:1.8rem 0}
         <span class="chip">Junior Data Scientist</span>
       </div>
       <div class="hero-actions rv">
-        <a href="https://www.linkedin.com/in/adhishnanda" target="_blank" rel="noopener" class="btn btn-p">LinkedIn →</a>
+        <a href="Adhish_Nanda_CV.pdf" download class="btn btn-p">Download CV ↓</a>
+        <a href="https://www.linkedin.com/in/adhishnanda" target="_blank" rel="noopener" class="btn btn-g">LinkedIn →</a>
         <a href="https://github.com/adhishnanda" target="_blank" rel="noopener" class="btn btn-g">GitHub ↗</a>
         <a href="mailto:adhish.nanda@gmail.com" class="btn btn-g">Email</a>
       </div>
@@ -388,9 +389,9 @@ footer{border-top:1px solid var(--line);padding:1.8rem 0}
       </div>
       <div class="rv">
         <div class="portrait-wrap">
-          <!-- To add your photo: drop a file named "adhish.jpg" next to index.html in your repo (or change the src below to a hosted URL). -->
-          <img class="portrait" src="adhish.jpg" alt="Adhish Nanda" loading="lazy"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <!-- Loads ADHISH.JPG (your uploaded file); falls back to adhish.jpg, then to the placeholder. GitHub Pages is case-sensitive. -->
+          <img class="portrait" src="ADHISH.JPG" alt="Adhish Nanda" loading="lazy"
+               onerror="if(!this.dataset.r){this.dataset.r=1;this.src='adhish.jpg';}else{this.style.display='none';this.nextElementSibling.style.display='flex';}">
           <div class="portrait-fallback" style="display:none">AN<small>add adhish.jpg</small></div>
           <span class="portrait-badge"><span class="pulse"></span> Berlin, Germany</span>
         </div>
@@ -461,8 +462,7 @@ footer{border-top:1px solid var(--line);padding:1.8rem 0}
             <span class="ptag">RAG</span><span class="ptag">LLM Routing</span><span class="ptag">FastAPI</span><span class="ptag">Docker</span><span class="ptag">FAISS + BM25</span><span class="ptag">RAGAS</span><span class="ptag">EU AI Act</span>
           </div>
           <h3 class="card-title">Cost-Aware, Governance-First RAG System with Adaptive LLM Routing</h3>
-          <p class="card-desc">A production-inspired retrieval system for AI-governance question answering across the EU AI Act, GDPR, NIST AI RMF, and ISO/IEC 42001. Hybrid retrieval combines symbolic exact-match, weighted BM25 and FAISS fusion, and cross-encoder reranking. Retrieval was built from scratch rather than on a framework.</p>
-          <p class="card-desc">A rule-based router assigns each query to a cost tier (Llama 3 8B or phi3:mini via Ollama). Evaluation layers LLM-as-judge scoring, RAGAS metrics, and a post-hoc counterfactual comparison against an oracle. Served through a FastAPI and Docker deployment with a Streamlit observability dashboard.</p>
+          <p class="card-desc">A production-inspired retrieval system for AI-governance question answering across the EU AI Act, GDPR, NIST AI RMF, and ISO/IEC 42001. Hybrid retrieval combines symbolic exact-match, BM25 and FAISS fusion, and cross-encoder reranking, built from scratch. A rule-based router then sends each query to a cheap or costly model tier, evaluated with RAGAS and a counterfactual comparison against an oracle.</p>
           <div class="mini-metrics">
             <div class="mm"><div class="mm-n a">0.97</div><div class="mm-l">Context precision<br>(25-query gold set)</div></div>
             <div class="mm"><div class="mm-n b">72.2%</div><div class="mm-l">Generation cost<br>reduction</div></div>
@@ -471,7 +471,8 @@ footer{border-top:1px solid var(--line);padding:1.8rem 0}
           <div class="card-foot">
             <span class="card-when">Apr 2026 – Aug 2026 · UE Berlin · Supervisors: Prof. Dr. Iftikhar Ahmed, Prof. Dr. Talha Ali Khan</span>
             <div class="links">
-              <a href="https://github.com/adhishnanda/cost-aware-governance-rag" target="_blank" rel="noopener" class="plink">GitHub →</a>
+              <a href="case-thesis.html" class="plink">Read case study →</a>
+              <a href="https://github.com/adhishnanda/cost-aware-governance-rag" target="_blank" rel="noopener" class="plink muted">GitHub ↗</a>
             </div>
           </div>
         </div>
@@ -501,8 +502,7 @@ footer{border-top:1px solid var(--line);padding:1.8rem 0}
             <span class="ptag">dbt Core 1.11</span><span class="ptag">BigQuery</span><span class="ptag">Kimball Star Schema</span><span class="ptag">GitHub Actions CI</span><span class="ptag">Looker Studio</span><span class="ptag">SQL</span>
           </div>
           <h3 class="card-title">End-to-End dbt Analytics Stack on E-Commerce Data</h3>
-          <p class="card-desc">An analytics engineering stack on 100,000-plus real Brazilian e-commerce orders (Olist). A three-layer dbt pipeline, staging to intermediate to marts, implements a Kimball star schema in BigQuery hosted in the Berlin region.</p>
-          <p class="card-desc">Every pull request runs 94 automated data quality tests through GitHub Actions. A live Looker Studio dashboard covers revenue, delivery performance, geography, and product categories. This targets the analytics engineer role, one of the clearest gaps in the European market.</p>
+          <p class="card-desc">An analytics engineering stack on 100,000-plus real Olist e-commerce orders. A three-layer dbt pipeline implements a Kimball star schema in BigQuery, with 94 automated tests run in GitHub Actions CI and a live Looker Studio dashboard covering revenue, delivery, geography, and product categories.</p>
           <div class="mini-metrics">
             <div class="mm"><div class="mm-n a">15</div><div class="mm-l">dbt models<br>across 3 layers</div></div>
             <div class="mm"><div class="mm-n c">94</div><div class="mm-l">Automated<br>data tests</div></div>
@@ -511,8 +511,9 @@ footer{border-top:1px solid var(--line);padding:1.8rem 0}
           <div class="card-foot">
             <span class="card-when">May 2026 · Analytics Engineering</span>
             <div class="links">
-              <a href="https://datastudio.google.com/reporting/16a27174-33bf-4c1f-a222-6c61aa67cde1" target="_blank" rel="noopener" class="plink">Live dashboard →</a>
-              <a href="https://github.com/adhishnanda/ecommerce-dbt-stack" target="_blank" rel="noopener" class="plink muted">GitHub →</a>
+              <a href="case-dbt.html" class="plink">Read case study →</a>
+              <a href="https://datastudio.google.com/reporting/16a27174-33bf-4c1f-a222-6c61aa67cde1" target="_blank" rel="noopener" class="plink muted">Dashboard ↗</a>
+              <a href="https://github.com/adhishnanda/ecommerce-dbt-stack" target="_blank" rel="noopener" class="plink muted">GitHub ↗</a>
             </div>
           </div>
         </div>
@@ -759,8 +760,7 @@ footer{border-top:1px solid var(--line);padding:1.8rem 0}
         <div class="t-stack"><span class="st">Python</span><span class="st">Tableau</span><span class="st">Regression</span><span class="st">Funnel Analytics</span></div>
         <ul class="t-list">
           <li>Used regression and funnel analysis on multi-channel marketing data to find conversion drivers</li>
-          <li>Tracked ROAS, CPA, CAC, and conversion rate in Python to support budget decisions</li>
-          <li>Built Tableau dashboards for live campaign monitoring and executive reporting</li>
+          <li>Tracked ROAS, CPA, CAC, and conversion rate in Python, and built Tableau dashboards for live campaign monitoring</li>
         </ul>
       </div>
 
@@ -772,7 +772,6 @@ footer{border-top:1px solid var(--line);padding:1.8rem 0}
         <ul class="t-list">
           <li>Built a CNN image-classification pipeline for breast cancer detection, contributing to a Springer-published paper</li>
           <li>Cleaned and processed clinical datasets in Python, SQL, and R, handling class imbalance and normalisation</li>
-          <li>Built Tableau dashboards to communicate findings to clinical teams without a programming background</li>
         </ul>
       </div>
 
@@ -784,7 +783,6 @@ footer{border-top:1px solid var(--line);padding:1.8rem 0}
         <ul class="t-list">
           <li>Built a time-series regression model for Li-Ion battery state-of-charge estimation, published in AJAST 2017</li>
           <li>Ran load-forecasting analysis for electric vehicle charging contexts</li>
-          <li>Co-authored two AJAST publications on state-of-charge estimation and IoT smart-vehicle systems</li>
         </ul>
       </div>
 
@@ -928,7 +926,7 @@ footer{border-top:1px solid var(--line);padding:1.8rem 0}
       <p class="contact-sub">Open to full-time roles in data engineering, analytics engineering, applied AI and ML, and data or BI analysis, across Germany and the EU.</p>
       <p class="contact-note">Work authorisation available · EU Blue Card eligible · English fluent · German A2 and improving</p>
       <div class="contact-links">
-        <a href="mailto:adhish.nanda@gmail.com?subject=CV%20request%20for%20%5BRole%5D%20at%20%5BCompany%5D&body=Hi%20Adhish%2C%0A%0AWe%27d%20like%20to%20request%20your%20CV%20for%20the%20%5BRole%5D%20position%20at%20%5BCompany%5D.%0A%0AThanks" class="clink p">Request CV</a>
+        <a href="Adhish_Nanda_CV.pdf" download class="clink p">Download CV ↓</a>
         <a href="mailto:adhish.nanda@gmail.com" class="clink">Email</a>
         <a href="https://www.linkedin.com/in/adhishnanda" target="_blank" rel="noopener" class="clink">LinkedIn ↗</a>
         <a href="https://github.com/adhishnanda" target="_blank" rel="noopener" class="clink">GitHub ↗</a>
