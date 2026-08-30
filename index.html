@@ -423,7 +423,7 @@
     </div>
 
     <div style="margin-top:56px;padding:20px;border:1px solid var(--hair);border-radius:10px;background:#0a0a0a;font-family:var(--font-mono);font-size:13px;line-height:1.9;color:var(--ink-2);white-space:pre;overflow-x:auto"><span style="color:rgba(255,255,255,.42)">$</span> pytest -q
-347 passed in 11.42s</div>
+347 passed</div>
   </section>
 
   <!-- ── about ──────────────────────────────────────────── -->
@@ -582,19 +582,6 @@ class Component extends DCLogic {
     };
   }
 }
-</script>
-<script>
-(function(){
-  function apply(){
-    var v = document.getElementById('hero-media');
-    if (!v) return false;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { v.pause(); v.removeAttribute('autoplay'); }
-    return true;
-  }
-  if (!apply()) document.addEventListener('DOMContentLoaded', apply);
-  var t = setInterval(function(){ if (apply()) clearInterval(t); }, 200);
-  setTimeout(function(){ clearInterval(t); }, 4000);
-})();
 </script>
 </body>
 </html>
