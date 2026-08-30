@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adhish Nanda — AI/ML & Data Engineer, Berlin</title>
+<meta name="description" content="AI/ML and Data Engineer in Berlin. Retrieval systems, agents and data pipelines, instrumented so cost and quality are numbers, not opinions. Eight public projects.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Adhish Nanda — AI/ML & Data Engineer, Berlin">
+<meta property="og:description" content="AI/ML and Data Engineer in Berlin. Retrieval systems, agents and data pipelines, instrumented so cost and quality are numbers, not opinions. Eight public projects.">
+<meta property="og:url" content="https://adhishnanda.github.io/">
+<meta property="og:site_name" content="Adhish Nanda">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2712%27 fill=%27%23000000%27/%3E%3Ctext x=%2732%27 y=%2744%27 font-family=%27Arial Narrow,sans-serif%27 font-size=%2736%27 font-weight=%27600%27 fill=%27%23d8c7a3%27 text-anchor=%27middle%27%3EAN%3C/text%3E%3C/svg%3E">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@variable&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --font-display: "Bricolage Grotesque", Arial Narrow, sans-serif;
+    --font-ui: "Satoshi", Arial, sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
+
+    --bg: #000000;
+    --ink: #ffffff;
+    --ink-2: rgba(226, 229, 228, .84);
+    --ink-3: rgba(229, 229, 230, .62);
+    --hair: rgba(255, 255, 255, .13);
+    --hair-strong: rgba(255, 255, 255, .21);
+    --glass-a: rgba(24, 22, 20, .80);
+    --glass-b: rgba(5, 12, 14, .86);
+    --accent: #d8c7a3;
+  }
+  html, body { margin: 0; padding: 0; background: var(--bg); }
+  body { font-family: var(--font-ui); font-weight: 350; font-size: 17px; line-height: 1.55; color: var(--ink-2); -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+  a { color: var(--ink); text-decoration: none; }
+  a:hover { color: var(--ink); }
+  ::selection { background: rgba(216,199,163,0.28); color: #fff; }
+  @keyframes lineIn { from { transform: translate3d(0,110%,0) skewY(2deg); } to { transform: none; } }
+  @keyframes brandIn { from { opacity: 0; transform: translateY(7px) scale(.94); } to { opacity: 1; transform: none; } }
+  @keyframes fadeUp6 { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  @keyframes fadeUp8 { from { opacity: 0; transform: translateY(8px) scale(.985); } to { opacity: 1; transform: none; } }
+  @keyframes fadeUp10 { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  @keyframes cardIn { from { opacity: 0; transform: translateY(12px) scale(.968); } to { opacity: 1; transform: none; } }
+  html.motion-pending [data-anim="fade"] { opacity: 0; }
+  html.motion-pending [data-anim="line"] { transform: translate3d(0,110%,0) skewY(2deg); }
+  a, button { transition: filter 140ms; }
+  a:hover, button:hover { filter: brightness(1.08); }
+  a:focus-visible, button:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+
+  /* responsive overrides */
+  @media (max-width: 900px) {
+    :root { --cap-cols: 1fr; --proc-cols: repeat(2,1fr); --about-cols: 1fr; }
+  }
+  @media (max-width: 560px) {
+    :root { --proc-cols: 1fr; }
+    #top { --display-size: clamp(30px, 8.4vw, 56px) !important; }
+    #top h1 + p { max-width: 100% !important; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    [data-anim] { animation: none !important; opacity: 1 !important; transform: none !important; }
+  }
+</style>
+<script>
+(function () {
+  var h = document.documentElement;
+  h.classList.add('motion-pending');
+  window.__heroMotion = setTimeout(function () { h.classList.remove('motion-pending'); }, 3500);
+})();
+</script>
+</helmet>
+
+<div style="background:var(--bg);color:var(--ink);min-height:100vh;font-family:var(--font-ui);overflow-x:hidden;--gutter:clamp(36px,4.2vw,96px)">
+
+  <!-- ── hero ───────────────────────────────────────────── -->
+  <section id="top" data-screen-label="Hero" style="position:relative;isolation:isolate;overflow:hidden;min-height:100svh;background:#0b0b0b;--gutter:clamp(36px,4.2vw,96px);--header-top:clamp(20px,2.3vh,30px);--hero-bottom:clamp(34px,5.2vh,64px);--display-size:clamp(56px,7.4vh,92px);--copy-size:clamp(15px,1.7vh,19px);--title-copy-gap:clamp(16px,2.1vh,24px);--copy-cta-gap:clamp(24px,3.1vh,36px);--cta-height:clamp(40px,4vh,46px);--card-width:clamp(190px,21vh,250px)" style-before="content:'';position:absolute;inset:0;z-index:-2;background:linear-gradient(180deg,rgba(0,0,0,.10),transparent 22%,transparent 70%,rgba(0,0,0,.55) 100%),radial-gradient(ellipse at 40% 55%,transparent 30%,rgba(0,0,0,.30) 100%)">
+
+    <header style="position:absolute;inset:var(--header-top) var(--gutter) auto var(--gutter);height:48px;display:flex;align-items:flex-start;white-space:nowrap;z-index:4">
+      <a href="#top" data-anim="fade" style="animation:brandIn 580ms cubic-bezier(.16,1,.3,1) 60ms both;padding-top:3px;font-weight:460;font-size:15px;letter-spacing:-.2px;color:#fff">Adhish Nanda</a>
+
+      <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+        <div style="flex:1;min-width:0;height:48px;display:flex;align-items:flex-start">
+          <nav style="margin-left:clamp(36px,3vw,48px);padding-top:3px;display:flex;align-items:flex-start;gap:clamp(28px,2.6vw,40px)">
+            <a href="#work" data-anim="fade" style="animation:fadeUp6 480ms cubic-bezier(.16,1,.3,1) 130ms both;position:relative;font-weight:430;font-size:16px;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.55)" style-after="content:'';position:absolute;left:0;bottom:-8px;width:44px;height:2px;background:rgba(255,255,255,.82)">Work</a>
+            <a href="#process" data-anim="fade" style="animation:fadeUp6 480ms cubic-bezier(.16,1,.3,1) 175ms both;font-weight:430;font-size:16px;color:var(--ink-3);text-shadow:0 1px 3px rgba(0,0,0,.55)" style-hover="color:#fff">Process</a>
+            <a href="#about" data-anim="fade" style="animation:fadeUp6 480ms cubic-bezier(.16,1,.3,1) 220ms both;font-weight:430;font-size:16px;color:var(--ink-3);text-shadow:0 1px 3px rgba(0,0,0,.55)" style-hover="color:#fff">About</a>
+            <div data-anim="fade" style="animation:fadeUp6 480ms cubic-bezier(.16,1,.3,1) 265ms both;position:relative">
+              <button type="button" onClick="{{ toggleCase }}" style="padding:0;border:0;background:none;cursor:pointer;font-family:var(--font-ui);font-weight:430;font-size:16px;color:var(--ink-3);text-shadow:0 1px 3px rgba(0,0,0,.55);display:inline-flex;align-items:center;gap:7px" style-hover="color:#fff">
+                Case studies <span style="font-size:9px">▼</span>
+              </button>
+              <sc-if value="{{ caseOpen }}" hint-placeholder-val="{{ false }}">
+                <div style="position:absolute;left:0;top:34px;min-width:210px;padding:8px;display:grid;gap:2px;border:1px solid var(--hair-strong);border-radius:11px;background:linear-gradient(145deg,var(--glass-a),var(--glass-b));backdrop-filter:blur(14px) saturate(108%);box-shadow:0 12px 34px rgba(0,0,0,.55)">
+                  <a href="./case-rag.html" style="padding:9px 11px;border-radius:7px;font-weight:430;font-size:14px;color:var(--ink-2)" style-hover="background:rgba(255,255,255,.09);color:#fff">RAG system (thesis)</a>
+                  <a href="./case-warehouse-copilot.html" style="padding:9px 11px;border-radius:7px;font-weight:430;font-size:14px;color:var(--ink-2)" style-hover="background:rgba(255,255,255,.09);color:#fff">Warehouse Copilot</a>
+                  <a href="./case-dbt.html" style="padding:9px 11px;border-radius:7px;font-weight:430;font-size:14px;color:var(--ink-2)" style-hover="background:rgba(255,255,255,.09);color:#fff">dbt analytics stack</a>
+                </div>
+              </sc-if>
+            </div>
+          </nav>
+
+          <div data-anim="fade" style="animation:fadeUp6 520ms cubic-bezier(.16,1,.3,1) 180ms both;margin-left:auto;height:48px;padding-left:10px;border-left:2px solid rgba(230,230,230,.52);display:flex;flex-direction:column;justify-content:center;gap:2px">
+            <div style="font-weight:420;font-size:14px;line-height:1.2;color:rgba(240,240,240,.77)">Status</div>
+            <div style="font-weight:440;font-size:15px;line-height:1.2;color:rgba(255,255,255,.93)">Berlin, DE&nbsp; • &nbsp;EU Blue Card eligible</div>
+          </div>
+
+          <div style="position:relative;margin-left:clamp(20px,2vw,29px);padding-top:3px">
+            <button type="button" onClick="{{ toggleCv }}" data-anim="fade" style="animation:fadeUp8 520ms cubic-bezier(.16,1,.3,1) 220ms both;height:42px;padding:0 18px;border:0;border-radius:7px;background:#fff;color:#101010;font-family:var(--font-ui);font-weight:460;font-size:15px;letter-spacing:-.34px;box-shadow:inset 0 1px 0 rgba(255,255,255,.72),0 1px 5px rgba(0,0,0,.34);cursor:pointer;display:inline-flex;align-items:center;gap:9px">
+              Download CV <span style="font-size:10px;color:#5a5a5a">▼</span>
+            </button>
+            <sc-if value="{{ cvOpen }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;right:0;top:52px;min-width:200px;padding:8px;display:grid;gap:2px;border:1px solid var(--hair-strong);border-radius:11px;background:linear-gradient(145deg,var(--glass-a),var(--glass-b));backdrop-filter:blur(14px) saturate(108%);box-shadow:0 12px 34px rgba(0,0,0,.55)">
+                <a href="assets/Adhish_Nanda_CV_AI_ML.pdf" style="padding:9px 11px;border-radius:7px;font-weight:430;font-size:14px;color:var(--ink-2)" style-hover="background:rgba(255,255,255,.09);color:#fff">AI/ML CV (PDF)</a>
+                <a href="assets/Adhish_Nanda_CV_Data.pdf" style="padding:9px 11px;border-radius:7px;font-weight:430;font-size:14px;color:var(--ink-2)" style-hover="background:rgba(255,255,255,.09);color:#fff">Data CV (PDF)</a>
+              </div>
+            </sc-if>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-left:auto;position:relative">
+          <button type="button" onClick="{{ toggleMenu }}" aria-label="Menu" data-anim="fade" style="animation:fadeUp8 520ms cubic-bezier(.16,1,.3,1) 220ms both;width:44px;height:44px;display:grid;place-items:center;gap:0;border:1px solid var(--hair-strong);border-radius:9px;background:linear-gradient(145deg,var(--glass-a),var(--glass-b));backdrop-filter:blur(14px);cursor:pointer">
+            <svg width="18" height="14" viewBox="0 0 18 14" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round"><path d="M1 1.5h16M1 7h16M1 12.5h16"/></svg>
+          </button>
+          <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute;right:0;top:52px;min-width:230px;padding:10px;display:grid;gap:2px;border:1px solid var(--hair-strong);border-radius:12px;background:linear-gradient(145deg,var(--glass-a),var(--glass-b));backdrop-filter:blur(14px) saturate(108%);box-shadow:0 12px 34px rgba(0,0,0,.55)">
+              <a href="#work" style="padding:10px 11px;border-radius:7px;font-weight:430;font-size:15px;color:var(--ink-2)" style-hover="background:rgba(255,255,255,.09);color:#fff">Work</a>
+              <a href="#process" style="padding:10px 11px;border-radius:7px;font-weight:430;font-size:15px;color:var(--ink-2)" style-hover="background:rgba(255,255,255,.09);color:#fff">Process</a>
+              <a href="#about" style="padding:10px 11px;border-radius:7px;font-weight:430;font-size:15px;color:var(--ink-2)" style-hover="background:rgba(255,255,255,.09);color:#fff">About</a>
+              <div style="padding:10px 11px 4px;font-weight:430;font-size:15px;color:var(--ink-3)">Case studies</div>
+              <a href="./case-rag.html" style="padding:9px 11px 9px 22px;border-radius:7px;font-weight:430;font-size:14px;color:var(--ink-2)" style-hover="background:rgba(255,255,255,.09);color:#fff">RAG system (thesis)</a>
+              <a href="./case-warehouse-copilot.html" style="padding:9px 11px 9px 22px;border-radius:7px;font-weight:430;font-size:14px;color:var(--ink-2)" style-hover="background:rgba(255,255,255,.09);color:#fff">Warehouse Copilot</a>
+              <a href="./case-dbt.html" style="padding:9px 11px 9px 22px;border-radius:7px;font-weight:430;font-size:14px;color:var(--ink-2)" style-hover="background:rgba(255,255,255,.09);color:#fff">dbt analytics stack</a>
+              <div style="margin:6px 0;height:1px;background:var(--hair)"></div>
+              <a href="assets/Adhish_Nanda_CV_AI_ML.pdf" style="padding:10px 11px;border-radius:7px;font-weight:430;font-size:15px;color:var(--ink-2)" style-hover="background:rgba(255,255,255,.09);color:#fff">AI/ML CV (PDF)</a>
+              <a href="assets/Adhish_Nanda_CV_Data.pdf" style="padding:10px 11px;border-radius:7px;font-weight:430;font-size:15px;color:var(--ink-2)" style-hover="background:rgba(255,255,255,.09);color:#fff">Data CV (PDF)</a>
+            </div>
+          </sc-if>
+        </div>
+      </sc-if>
+    </header>
+
+    <div style="position:absolute;left:var(--gutter);right:var(--gutter);top:calc(var(--header-top) + 88px);height:min(332px, max(0px, calc(100svh - 460px)));z-index:1;display:flex;justify-content:center;align-items:flex-start;pointer-events:none">
+      <video id="hero-media" autoplay muted loop playsinline disablepictureinpicture aria-hidden="true" poster="assets/hero-poster.jpg" style="display:block;width:auto;max-width:min(540px,100%);height:auto;max-height:calc(100% - clamp(24px,3vh,40px));border-radius:12px;box-shadow:0 4px 30px rgba(0,0,0,.5);margin-bottom:clamp(24px,3vh,40px)"><source src="assets/hero-loop.mp4" type="video/mp4"></video>
+    </div>
+
+    <div style="position:absolute;left:var(--gutter);bottom:var(--hero-bottom);z-index:2;display:flex;flex-direction:column;align-items:flex-start">
+      <h1 style="margin:0;font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;line-height:1.02;font-size:var(--display-size);text-shadow:0 2px 2px rgba(0,0,0,.44);white-space:nowrap">
+        <span style="display:block;overflow:hidden;padding-bottom:.16em;margin-bottom:-.16em"><span data-anim="line" style="display:block;color:#fff;animation:lineIn 800ms cubic-bezier(.22,1,.36,1) 300ms both">Systems that are measured,</span></span>
+        <span style="display:block;overflow:hidden;padding-bottom:.16em;margin-bottom:-.16em"><span data-anim="line" style="display:block;color:rgba(211,207,207,.78);animation:lineIn 850ms cubic-bezier(.22,1,.36,1) 440ms both">not assumed.</span></span>
+      </h1>
+
+      <p data-anim="fade" style="animation:fadeUp10 620ms cubic-bezier(.16,1,.3,1) 740ms both;margin:var(--title-copy-gap) 0 0;font-weight:350;font-size:var(--copy-size);line-height:1.4;letter-spacing:.13px;color:var(--ink-2);max-width:clamp(390px,32vw,520px);text-shadow:0 1px 3px rgba(0,0,0,.7)">
+        AI/ML and Data Engineer in Berlin. I build retrieval systems,<br>
+        agents and pipelines, and instrument each one so cost and<br>
+        quality are numbers, not opinions.
+      </p>
+
+      <div style="margin-top:var(--copy-cta-gap);display:flex;align-items:center">
+        <a href="#work" data-anim="fade" style="animation:fadeUp8 560ms cubic-bezier(.16,1,.3,1) 960ms both;height:var(--cta-height);padding:0 12px 0 16px;border-radius:7px;background:#fff;color:#111;font-weight:450;font-size:15px;letter-spacing:-.3px;box-shadow:0 1px 5px rgba(0,0,0,.38);display:inline-flex;align-items:center;gap:12px" style-hover="background:rgba(255,255,255,.9);color:#111">
+          View work
+          <span style="width:28px;height:28px;border-radius:6px;background:#070909;display:grid;place-items:center">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h12.5M11.5 5.5L18.5 12l-7 6.5"/></svg>
+          </span>
+        </a>
+
+        <sc-if value="{{ showInstallPill }}" hint-placeholder-val="{{ true }}">
+          <button type="button" onClick="{{ copyClone }}" data-anim="fade" style="animation:fadeUp8 560ms cubic-bezier(.16,1,.3,1) 960ms both;margin-left:12px;height:var(--cta-height);padding:0 14px;border-radius:7px;border:1px solid var(--hair-strong);background:linear-gradient(145deg,var(--glass-a),var(--glass-b));backdrop-filter:blur(14px) saturate(108%);display:inline-flex;align-items:center;gap:9px;font-family:var(--font-mono);font-size:13px;color:rgba(255,255,255,.86);white-space:nowrap;cursor:pointer">
+            <span style="color:rgba(255,255,255,.5)">{{ cloneSigil }}</span>
+            <span>git clone github.com/adhishnanda/cost-aware-governance-rag</span>
+          </button>
+        </sc-if>
+      </div>
+    </div>
+
+    <sc-if value="{{ showCard }}" hint-placeholder-val="{{ true }}">
+      <article data-anim="fade" onAnimationEnd="{{ endMotion }}" style="animation:cardIn 920ms cubic-bezier(.22,1,.36,1) 1040ms both;transform-origin:82% 50%;position:absolute;right:var(--gutter);bottom:var(--hero-bottom);z-index:2;width:var(--card-width);padding:16px 18px 14px;border:1px solid var(--hair);border-radius:clamp(12px,1.5vh,18px);background:linear-gradient(145deg,var(--glass-a),var(--glass-b));box-shadow:0 2px 10px rgba(0,0,0,.44),0 0 0 3px rgba(255,255,255,.035) inset,0 0 0 1px rgba(0,0,0,.9);backdrop-filter:blur(14px) saturate(108%)">
+        <div style="padding-bottom:11px;border-bottom:1px solid var(--hair)">
+          <div style="font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;line-height:1.02;font-size:30px;color:var(--accent)">0.97</div>
+          <div style="margin-top:4px;font-weight:420;font-size:12.5px;line-height:1.35;color:var(--ink-3)">context precision, RAG thesis</div>
+        </div>
+        <div style="padding:11px 0;border-bottom:1px solid var(--hair)">
+          <div style="font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;line-height:1.02;font-size:30px;color:var(--accent)">72.2%</div>
+          <div style="margin-top:4px;font-weight:420;font-size:12.5px;line-height:1.35;color:var(--ink-3)">generation cost reduced</div>
+        </div>
+        <div style="padding:11px 0;border-bottom:1px solid var(--hair)">
+          <div style="font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;line-height:1.02;font-size:30px;color:var(--accent)">109.4%</div>
+          <div style="margin-top:4px;font-weight:420;font-size:12.5px;line-height:1.35;color:var(--ink-3)">quality vs. always-expensive baseline</div>
+        </div>
+        <div style="padding:11px 0 0">
+          <div style="font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;line-height:1.02;font-size:30px;color:var(--accent)">347</div>
+          <div style="margin-top:4px;font-weight:420;font-size:12.5px;line-height:1.35;color:var(--ink-3)">tests, job-market pipeline</div>
+        </div>
+        <a href="./case-rag.html" style="margin-top:14px;height:40px;display:flex;align-items:center;justify-content:center;border:1px solid var(--hair-strong);border-radius:8px;background:linear-gradient(145deg,rgba(26,34,36,.86),rgba(16,29,33,.9));font-weight:430;font-size:13.5px;color:var(--ink)" style-hover="border-color:rgba(255,255,255,.34);color:#fff">Read the case study</a>
+      </article>
+    </sc-if>
+  </section>
+
+  <!-- ── capabilities ───────────────────────────────────── -->
+  <section id="capabilities" data-screen-label="Capabilities" style="max-width:1120px;margin:0 auto;padding:128px var(--gutter)">
+    <div style="font-weight:420;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-3)">01 Capabilities</div>
+    <h2 style="margin:18px 0 0;font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;line-height:1.02;font-size:44px;color:var(--ink)">Three layers I build across</h2>
+    <div style="margin-top:56px;display:grid;grid-template-columns:var(--cap-cols,repeat(3,1fr));gap:48px">
+      <div>
+        <div style="font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;line-height:1.02;font-size:24px;color:var(--ink)">LLM systems</div>
+        <p style="margin:14px 0 0;font-weight:350;font-size:16px;line-height:1.55;color:var(--ink-2)">Hybrid retrieval, adaptive model routing, text-to-SQL agents, with RAGAS and LLM-as-judge evaluation built in.</p>
+        <div style="margin-top:16px;font-weight:430;font-size:13px;color:var(--ink-3)">FastAPI · FAISS · BM25 · RAGAS · Ollama</div>
+      </div>
+      <div>
+        <div style="font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;line-height:1.02;font-size:24px;color:var(--ink)">Data engineering</div>
+        <p style="margin:14px 0 0;font-weight:350;font-size:16px;line-height:1.55;color:var(--ink-2)">Orchestrated ingestion into DuckDB and BigQuery, daily refresh in GitHub Actions, and test suites that run in CI.</p>
+        <div style="margin-top:16px;font-weight:430;font-size:13px;color:var(--ink-3)">Airflow · DuckDB · dbt · GitHub Actions</div>
+      </div>
+      <div>
+        <div style="font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;line-height:1.02;font-size:24px;color:var(--ink)">Analytics and ML</div>
+        <p style="margin:14px 0 0;font-weight:350;font-size:16px;line-height:1.55;color:var(--ink-2)">Star-schema warehouses, Power BI and Looker Studio dashboards, and ranking and classification models with offline evaluation.</p>
+        <div style="margin-top:16px;font-weight:430;font-size:13px;color:var(--ink-3)">BigQuery · Power BI · LightGBM · PyTorch</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── selected work ──────────────────────────────────── -->
+  <section id="work" data-screen-label="Selected work" style="max-width:1120px;margin:0 auto;padding:128px var(--gutter);padding-top:0;scroll-margin-top:40px">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap">
+      <div>
+        <div style="font-weight:420;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-3)">02 Selected work</div>
+        <h2 style="margin:18px 0 0;font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;line-height:1.02;font-size:44px;color:var(--ink)">Eight projects, all public</h2>
+      </div>
+      <a href="https://github.com/adhishnanda?tab=repositories" target="_blank" rel="noopener" style="color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;font-weight:430;font-size:15px">All repositories</a>
+    </div>
+
+    <div style="--work-cols:{{ workCols }};--thumb-ar:{{ thumbAr }}">
+    <div style="margin-top:52px;border-bottom:1px solid var(--hair)">
+      <div style="border-top:1px solid var(--hair);padding:28px 14px;display:grid;grid-template-columns:var(--work-cols,200px minmax(180px,1fr) minmax(0,1.5fr) 140px);gap:32px;align-items:start" style-hover="background:rgba(255,255,255,.025)">
+        <div style="overflow:hidden;position:relative;aspect-ratio:var(--thumb-ar,4/5);border:1px solid var(--hair);border-radius:12px">
+          <img src="assets/work-rag.jpg" width="1200" height="1709" loading="lazy" alt="Cost-Aware, Governance-First RAG" style="display:block;width:100%;height:100%;object-fit:cover;transition:transform 400ms cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.03)">
+          <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,transparent 60%,rgba(0,0,0,.35))"></div>
+        </div>
+        <div style="font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;line-height:1.02;font-size:28px;color:var(--ink)">Cost-Aware, Governance-First RAG</div>
+        <div>
+          <p style="margin:0;font-weight:350;font-size:16px;line-height:1.55;color:var(--ink-2)">Hybrid BM25 and FAISS retrieval with cross-encoder reranking and rule-based LLM routing, evaluated on the EU AI Act, GDPR, NIST AI RMF and ISO/IEC 42001.</p>
+          <div style="margin-top:14px;font-weight:430;font-size:13px;color:var(--ink-3)">FastAPI · FAISS · RAGAS · Docker</div>
+          <div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:18px">
+            <a href="./case-rag.html" style="color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;font-weight:430;font-size:14px">Case study</a>
+            <a href="https://github.com/adhishnanda/cost-aware-governance-rag" target="_blank" rel="noopener" style="color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;font-weight:430;font-size:14px">Repo</a>
+          </div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;line-height:1.02;font-size:30px;color:var(--accent)">0.97</div>
+          <div style="margin-top:6px;font-weight:420;font-size:12.5px;line-height:1.35;color:var(--ink-3)">context precision</div>
+        </div>
+      </div>
+      <div style="border-top:1px solid var(--hair);padding:28px 14px;display:grid;grid-template-columns:var(--work-cols,200px minmax(180px,1fr) minmax(0,1.5fr) 140px);gap:32px;align-items:start" style-hover="background:rgba(255,255,255,.025)">
+        <div style="overflow:hidden;position:relative;aspect-ratio:var(--thumb-ar,4/5);border:1px solid var(--hair);border-radius:12px">
+          <img src="assets/work-warehouse.jpg" width="736" height="1308" loading="lazy" alt="Warehouse Analytics Copilot" style="display:block;width:100%;height:100%;object-fit:cover;transition:transform 400ms cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.03)">
+          <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,transparent 60%,rgba(0,0,0,.35))"></div>
+        </div>
+        <div style="font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;line-height:1.02;font-size:28px;color:var(--ink)">Warehouse Analytics Copilot</div>
+        <div>
+          <p style="margin:0;font-weight:350;font-size:16px;line-height:1.55;color:var(--ink-2)">Text-to-SQL agent over a governed YAML semantic layer. Hybrid retrieval with reranking; SQL executed on read-only DuckDB behind SELECT-only, row-limit and timeout guardrails, with a validate-and-retry loop.</p>
+          <div style="margin-top:14px;font-weight:430;font-size:13px;color:var(--ink-3)">FastAPI · DuckDB · React · dlt</div>
+          <div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:18px">
+            <a href="./case-warehouse-copilot.html" style="color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;font-weight:430;font-size:14px">Case study</a>
+            <a href="https://github.com/adhishnanda/warehouse-analytics-copilot" target="_blank" rel="noopener" style="color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;font-weight:430;font-size:14px">Repo</a>
+          </div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;line-height:1.02;font-size:30px;color:var(--accent)">305</div>
+          <div style="margin-top:6px;font-weight:420;font-size:12.5px;line-height:1.35;color:var(--ink-3)">tests</div>
+        </div>
+      </div>
+      <div style="border-top:1px solid var(--hair);padding:28px 14px;display:grid;grid-template-columns:var(--work-cols,200px minmax(180px,1fr) minmax(0,1.5fr) 140px);gap:32px;align-items:start" style-hover="background:rgba(255,255,255,.025)">
+        <div style="overflow:hidden;position:relative;aspect-ratio:var(--thumb-ar,4/5);border:1px solid var(--hair);border-radius:12px">
+          <img src="assets/work-gjma.jpg" width="600" height="900" loading="lazy" alt="German Job Market Analytics" style="display:block;width:100%;height:100%;object-fit:cover;transition:transform 400ms cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.03)">
+          <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,transparent 60%,rgba(0,0,0,.35))"></div>
+        </div>
+        <div style="font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;line-height:1.02;font-size:28px;color:var(--ink)">German Job Market Analytics</div>
+        <div>
+          <p style="margin:0;font-weight:350;font-size:16px;line-height:1.55;color:var(--ink-2)">Daily ingestion from Bundesagentur für Arbeit, StepStone and LinkedIn into DuckDB via an Airflow DAG and GitHub Actions. Normalised titles, skill extraction, salary parsing and cross-source deduplication.</p>
+          <div style="margin-top:14px;font-weight:430;font-size:13px;color:var(--ink-3)">Airflow · DuckDB · Streamlit</div>
+          <div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:18px">
+            <a href="https://german-job-market-analytics.streamlit.app" target="_blank" rel="noopener" style="color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;font-weight:430;font-size:14px">Live app</a>
+            <a href="https://github.com/adhishnanda/german-job-market-analytics" target="_blank" rel="noopener" style="color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;font-weight:430;font-size:14px">Repo</a>
+          </div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;line-height:1.02;font-size:30px;color:var(--accent)">347</div>
+          <div style="margin-top:6px;font-weight:420;font-size:12.5px;line-height:1.35;color:var(--ink-3)">automated tests</div>
+        </div>
+      </div>
+      <div style="border-top:1px solid var(--hair);padding:28px 14px;display:grid;grid-template-columns:var(--work-cols,200px minmax(180px,1fr) minmax(0,1.5fr) 140px);gap:32px;align-items:start" style-hover="background:rgba(255,255,255,.025)">
+        <div style="overflow:hidden;position:relative;aspect-ratio:var(--thumb-ar,4/5);border:1px solid var(--hair);border-radius:12px">
+          <img src="assets/work-dbt.jpg" width="750" height="1061" loading="lazy" alt="dbt / BigQuery analytics stack" style="display:block;width:100%;height:100%;object-fit:cover;transition:transform 400ms cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.03)">
+          <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,transparent 60%,rgba(0,0,0,.35))"></div>
+        </div>
+        <div style="font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;line-height:1.02;font-size:28px;color:var(--ink)">dbt / BigQuery analytics stack</div>
+        <div>
+          <p style="margin:0;font-weight:350;font-size:16px;line-height:1.55;color:var(--ink-2)">Kimball star schema over 100k+ e-commerce orders, 15 dbt models, tests run on every pull request, Looker Studio dashboard.</p>
+          <div style="margin-top:14px;font-weight:430;font-size:13px;color:var(--ink-3)">dbt · BigQuery · GitHub Actions</div>
+          <div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:18px">
+            <a href="./case-dbt.html" style="color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;font-weight:430;font-size:14px">Case study</a>
+            <a href="https://lookerstudio.google.com/reporting/16a27174-33bf-4c1f-a222-6c61aa67cde1" target="_blank" rel="noopener" style="color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;font-weight:430;font-size:14px">Dashboard</a>
+            <a href="https://github.com/adhishnanda/ecommerce-dbt-stack" target="_blank" rel="noopener" style="color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;font-weight:430;font-size:14px">Repo</a>
+          </div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;line-height:1.02;font-size:30px;color:var(--accent)">94</div>
+          <div style="margin-top:6px;font-weight:420;font-size:12.5px;line-height:1.35;color:var(--ink-3)">dbt tests</div>
+        </div>
+      </div>
+      <div style="border-top:1px solid var(--hair);padding:28px 14px;display:grid;grid-template-columns:var(--work-cols,200px minmax(180px,1fr) minmax(0,1.5fr) 140px);gap:32px;align-items:start" style-hover="background:rgba(255,255,255,.025)">
+        <div style="overflow:hidden;position:relative;aspect-ratio:var(--thumb-ar,4/5);border:1px solid var(--hair);border-radius:12px">
+          <img src="assets/work-news-feed.jpg" width="736" height="1104" loading="lazy" alt="News Feed Ranking System" style="display:block;width:100%;height:100%;object-fit:cover;transition:transform 400ms cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.03)">
+          <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,transparent 60%,rgba(0,0,0,.35))"></div>
+        </div>
+        <div style="font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;line-height:1.02;font-size:28px;color:var(--ink)">News Feed Ranking System</div>
+        <div>
+          <p style="margin:0;font-weight:350;font-size:16px;line-height:1.55;color:var(--ink-2)">Ingestion, feature store, LightGBM ranker, multi-objective reranking and IPS/SNIPS counterfactual evaluation, served over FastAPI.</p>
+          <div style="margin-top:14px;font-weight:430;font-size:13px;color:var(--ink-3)">LightGBM · Redis · FastAPI</div>
+          <div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:18px">
+            <a href="https://news-feed-ranker.streamlit.app" target="_blank" rel="noopener" style="color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;font-weight:430;font-size:14px">Live demo</a>
+            <a href="https://github.com/adhishnanda/news-feed-ranking-system" target="_blank" rel="noopener" style="color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;font-weight:430;font-size:14px">Repo</a>
+          </div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;line-height:1.02;font-size:30px;color:var(--accent)">43</div>
+          <div style="margin-top:6px;font-weight:420;font-size:12.5px;line-height:1.35;color:var(--ink-3)">tests</div>
+        </div>
+      </div>
+      <div style="border-top:1px solid var(--hair);padding:28px 14px;display:grid;grid-template-columns:var(--work-cols,200px minmax(180px,1fr) minmax(0,1.5fr) 140px);gap:32px;align-items:start" style-hover="background:rgba(255,255,255,.025)">
+        <div style="overflow:hidden;position:relative;aspect-ratio:var(--thumb-ar,4/5);border:1px solid var(--hair);border-radius:12px">
+          <img src="assets/work-emotions.jpg" width="564" height="798" loading="lazy" alt="Emotion-Adaptive Multimodal ML" style="display:block;width:100%;height:100%;object-fit:cover;transition:transform 400ms cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.03)">
+          <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,transparent 60%,rgba(0,0,0,.35))"></div>
+        </div>
+        <div style="font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;line-height:1.02;font-size:28px;color:var(--ink)">Emotion-Adaptive Multimodal ML</div>
+        <div>
+          <p style="margin:0;font-weight:350;font-size:16px;line-height:1.55;color:var(--ink-2)">Text, speech and vision emotion models fused in PyTorch. Co-authored; my part was pipeline design, training and evaluation.</p>
+          <div style="margin-top:14px;font-weight:430;font-size:13px;color:var(--ink-3)">PyTorch · Hugging Face</div>
+          <div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:18px">
+            <a href="https://github.com/adhishnanda/emotion-adaptive-multimodal-cbt-assistant" target="_blank" rel="noopener" style="color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;font-weight:430;font-size:14px">Repo</a>
+          </div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;line-height:1.02;font-size:30px;color:var(--accent)">54.1%</div>
+          <div style="margin-top:6px;font-weight:420;font-size:12.5px;line-height:1.35;color:var(--ink-3)">accuracy on MELD</div>
+        </div>
+      </div>
+      <div style="border-top:1px solid var(--hair);padding:28px 14px;display:grid;grid-template-columns:var(--work-cols,200px minmax(180px,1fr) minmax(0,1.5fr) 140px);gap:32px;align-items:start" style-hover="background:rgba(255,255,255,.025)">
+        <div style="overflow:hidden;position:relative;aspect-ratio:var(--thumb-ar,4/5);border:1px solid var(--hair);border-radius:12px">
+          <img src="assets/work-gesture.jpg" width="600" height="850" loading="lazy" alt="Gesture-Controlled German Learning App" style="display:block;width:100%;height:100%;object-fit:cover;transition:transform 400ms cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.03)">
+          <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,transparent 60%,rgba(0,0,0,.35))"></div>
+        </div>
+        <div style="font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;line-height:1.02;font-size:28px;color:var(--ink)">Gesture-Controlled German Learning App</div>
+        <div>
+          <p style="margin:0;font-weight:350;font-size:16px;line-height:1.55;color:var(--ink-2)">Real-time gesture recognition with MediaPipe and scikit-learn. Co-authored; my part was the offline ML pipeline, feature engineering and evaluation.</p>
+          <div style="margin-top:14px;font-weight:430;font-size:13px;color:var(--ink-3)">MediaPipe · scikit-learn</div>
+          <div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:18px">
+            <a href="https://github.com/adhishnanda/motion-edu-app" target="_blank" rel="noopener" style="color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;font-weight:430;font-size:14px">Repo</a>
+          </div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;line-height:1.02;font-size:26px;color:var(--accent)">2025-26</div>
+          <div style="margin-top:6px;font-weight:420;font-size:12.5px;line-height:1.35;color:var(--ink-3)">co-authored, UE Berlin</div>
+        </div>
+      </div>
+      <div style="border-top:1px solid var(--hair);padding:28px 14px;display:grid;grid-template-columns:var(--work-cols,200px minmax(180px,1fr) minmax(0,1.5fr) 140px);gap:32px;align-items:start" style-hover="background:rgba(255,255,255,.025)">
+        <div style="overflow:hidden;position:relative;aspect-ratio:var(--thumb-ar,4/5);border:1px solid var(--hair);border-radius:12px">
+          <img src="assets/work-poll.jpg" width="1182" height="1570" loading="lazy" alt="Airflow Polling Intelligence Pipeline" style="display:block;width:100%;height:100%;object-fit:cover;transition:transform 400ms cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.03)">
+          <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,transparent 60%,rgba(0,0,0,.35))"></div>
+        </div>
+        <div style="font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;line-height:1.02;font-size:28px;color:var(--ink)">Airflow Polling Intelligence Pipeline</div>
+        <div>
+          <p style="margin:0;font-weight:350;font-size:16px;line-height:1.55;color:var(--ink-2)">Batch data engineering pipeline on US polling data, orchestrated with Apache Airflow. Modular DAGs across ingestion, cleaning, feature engineering, and batch prediction layers. Academic project, Nov 2024 to Jan 2025.</p>
+          <div style="margin-top:14px;font-weight:430;font-size:13px;color:var(--ink-3)">Airflow · Python</div>
+          <div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:18px">
+            <a href="https://github.com/adhishnanda/airflow-polling-intelligence-pipeline" target="_blank" rel="noopener" style="color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;font-weight:430;font-size:14px">Repo</a>
+          </div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;line-height:1.02;font-size:30px;color:var(--accent)">2024-25</div>
+          <div style="margin-top:6px;font-weight:420;font-size:12.5px;line-height:1.35;color:var(--ink-3)">academic project</div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- ── process ────────────────────────────────────────── -->
+  <section id="process" data-screen-label="Process" style="max-width:1120px;margin:0 auto;padding:128px var(--gutter);padding-top:0;scroll-margin-top:40px">
+    <div style="font-weight:420;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-3)">03 Process</div>
+    <h2 style="margin:18px 0 0;font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;line-height:1.02;font-size:44px;color:var(--ink)">How I run a project</h2>
+    <div style="margin-top:56px;display:grid;grid-template-columns:var(--proc-cols,repeat(4,1fr));gap:40px">
+      <div>
+        <div style="font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;line-height:1.02;font-size:40px;color:var(--ink-3)">01</div>
+        <div style="margin-top:16px;font-weight:460;font-size:17px;color:var(--ink)">Define the question and the data</div>
+        <p style="margin:10px 0 0;font-weight:350;font-size:15px;line-height:1.55;color:var(--ink-2)">Agree what is being answered, which sources are allowed, and what a correct answer looks like.</p>
+      </div>
+      <div>
+        <div style="font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;line-height:1.02;font-size:40px;color:var(--ink-3)">02</div>
+        <div style="margin-top:16px;font-weight:460;font-size:17px;color:var(--ink)">Baseline and evaluation first</div>
+        <p style="margin:10px 0 0;font-weight:350;font-size:15px;line-height:1.55;color:var(--ink-2)">Build a gold set and pick metrics before tuning anything, so improvements are measured against a fixed reference.</p>
+      </div>
+      <div>
+        <div style="font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;line-height:1.02;font-size:40px;color:var(--ink-3)">03</div>
+        <div style="margin-top:16px;font-weight:460;font-size:17px;color:var(--ink)">Build and instrument</div>
+        <p style="margin:10px 0 0;font-weight:350;font-size:15px;line-height:1.55;color:var(--ink-2)">Retrieval, routing, pipelines, with tests, telemetry and cost per query recorded as outputs.</p>
+      </div>
+      <div>
+        <div style="font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;line-height:1.02;font-size:40px;color:var(--ink-3)">04</div>
+        <div style="margin-top:16px;font-weight:460;font-size:17px;color:var(--ink)">Ship and document</div>
+        <p style="margin:10px 0 0;font-weight:350;font-size:15px;line-height:1.55;color:var(--ink-2)">A README, a dashboard and a test suite the next person can run.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:56px;padding:20px;border:1px solid var(--hair);border-radius:10px;background:#0a0a0a;font-family:var(--font-mono);font-size:13px;line-height:1.9;color:var(--ink-2);white-space:pre;overflow-x:auto"><span style="color:rgba(255,255,255,.42)">$</span> pytest -q
+347 passed in 11.42s</div>
+  </section>
+
+  <!-- ── about ──────────────────────────────────────────── -->
+  <section id="about" data-screen-label="About" style="max-width:1120px;margin:0 auto;padding:128px var(--gutter);padding-top:0;scroll-margin-top:40px">
+    <div style="font-weight:420;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-3)">04 About</div>
+    <h2 style="margin:18px 0 0;font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;line-height:1.02;font-size:44px;color:var(--ink)">From measuring analytics to building it</h2>
+    <div style="margin-top:56px;display:grid;grid-template-columns:var(--about-cols,1.25fr 1fr);gap:64px;align-items:start">
+      <div>
+        <p style="margin:0;font-weight:350;font-size:17px;line-height:1.6;color:var(--ink-2);text-wrap:pretty">
+          I moved from analytics into building the systems analytics depends on. Two and a half years at NIIT, designing ML case studies and Power BI dashboards for enterprise training programmes, showed me what goes wrong when data and models are not measured. The MSc in Data Science at UE Berlin gave me the tools to measure them.
+        </p>
+        <p style="margin:22px 0 0;font-weight:350;font-size:17px;line-height:1.6;color:var(--ink-2);text-wrap:pretty">
+          I am based in Berlin, graduating in August 2026, and EU Blue Card eligible for roles across the EU without employer sponsorship. I work in Python and SQL across retrieval systems, data pipelines and evaluation. Five peer-reviewed publications in IEEE and Springer.
+        </p>
+      </div>
+
+      <div style="border:1px solid var(--hair);border-radius:16px;background:linear-gradient(145deg,var(--glass-a),var(--glass-b));box-shadow:0 2px 10px rgba(0,0,0,.44),0 0 0 3px rgba(255,255,255,.035) inset,0 0 0 1px rgba(0,0,0,.9);backdrop-filter:blur(14px) saturate(108%);padding:22px 24px">
+        <div style="display:flex;justify-content:space-between;gap:20px;padding:0 0 16px;border-bottom:1px solid var(--hair)">
+          <div>
+            <div style="font-weight:460;font-size:15px;color:var(--ink)">MSc Data Science</div>
+            <div style="margin-top:4px;font-weight:350;font-size:13.5px;line-height:1.4;color:var(--ink-3)">UE Berlin</div>
+          </div>
+          <div style="font-weight:420;font-size:12.5px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-3);white-space:nowrap">2026</div>
+        </div>
+        <div style="display:flex;justify-content:space-between;gap:20px;padding:16px 0;border-bottom:1px solid var(--hair)">
+          <div>
+            <div style="font-weight:460;font-size:15px;color:var(--ink)">Solutions Design Lead</div>
+            <div style="margin-top:4px;font-weight:350;font-size:13.5px;line-height:1.4;color:var(--ink-3)">NIIT, India</div>
+          </div>
+          <div style="font-weight:420;font-size:12.5px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-3);white-space:nowrap">2.5 years</div>
+        </div>
+        <div style="display:flex;justify-content:space-between;gap:20px;padding:16px 0;border-bottom:1px solid var(--hair)">
+          <div>
+            <div style="font-weight:460;font-size:15px;color:var(--ink)">Work authorisation</div>
+            <div style="margin-top:4px;font-weight:350;font-size:13.5px;line-height:1.4;color:var(--ink-3)">EU Blue Card eligible, no sponsorship needed</div>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:space-between;gap:20px;padding:16px 0 0">
+          <div>
+            <div style="font-weight:460;font-size:15px;color:var(--ink)">Languages</div>
+            <div style="margin-top:4px;font-weight:350;font-size:13.5px;line-height:1.4;color:var(--ink-3)">English C2 · Hindi C2 · German A2</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── changelog ──────────────────────────────────────── -->
+  <section data-screen-label="Changelog" style="max-width:1120px;margin:0 auto;padding:128px var(--gutter);padding-top:0">
+    <div style="font-weight:420;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-3)">05 Changelog</div>
+    <div style="margin-top:40px;max-width:760px;border-bottom:1px solid var(--hair)">
+      <div style="display:flex;gap:28px;padding:16px 0;border-top:1px solid var(--hair)">
+        <div style="font-weight:420;font-size:13px;letter-spacing:0.06em;color:var(--ink-3);white-space:nowrap;padding-top:2px">2026-08</div>
+        <div style="font-weight:350;font-size:16px;color:var(--ink-2)">MSc thesis submitted. Portfolio v2026.08.</div>
+      </div>
+      <div style="display:flex;gap:28px;padding:16px 0;border-top:1px solid var(--hair)">
+        <div style="font-weight:420;font-size:13px;letter-spacing:0.06em;color:var(--ink-3);white-space:nowrap;padding-top:2px">2026-08</div>
+        <div style="font-weight:350;font-size:16px;color:var(--ink-2)">Warehouse Analytics Copilot capstone submitted.</div>
+      </div>
+      <div style="display:flex;gap:28px;padding:16px 0;border-top:1px solid var(--hair)">
+        <div style="font-weight:420;font-size:13px;letter-spacing:0.06em;color:var(--ink-3);white-space:nowrap;padding-top:2px">2026-05</div>
+        <div style="font-weight:350;font-size:16px;color:var(--ink-2)">dbt / BigQuery stack and News Feed Ranking System published.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── contact ────────────────────────────────────────── -->
+  <section id="contact" data-screen-label="Contact" style="max-width:1120px;margin:0 auto;padding:128px var(--gutter);padding-top:0">
+    <h2 style="margin:18px 0 0;font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;line-height:1.02;font-size:44px;color:var(--ink)">Open to AI/ML Engineer, Data Engineer, Analytics Engineer and Data Scientist roles</h2>
+    <p style="margin:24px 0 0;font-weight:350;font-size:17px;line-height:1.55;color:var(--ink-2)">Berlin, remote across the EU, or India.</p>
+    <div style="margin-top:28px;display:flex;flex-wrap:wrap;align-items:center;gap:14px;font-weight:430;font-size:16px">
+      <a href="mailto:adhish.nanda@gmail.com" style="color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px">Email</a>
+      <span style="color:var(--ink-3)">·</span>
+      <a href="https://linkedin.com/in/adhishnanda" target="_blank" rel="noopener" style="color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px">LinkedIn</a>
+      <span style="color:var(--ink-3)">·</span>
+      <a href="https://github.com/adhishnanda" target="_blank" rel="noopener" style="color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px">GitHub</a>
+      <span style="color:var(--ink-3)">·</span>
+      <a href="https://xing.com/profile/Adhish_Nanda" target="_blank" rel="noopener" style="color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px">Xing</a>
+    </div>
+  </section>
+
+  <!-- ── footer ─────────────────────────────────────────── -->
+  <footer style="border-top:1px solid var(--hair)">
+    <div style="max-width:1120px;margin:0 auto;padding:32px var(--gutter);font-weight:430;font-size:14px;color:var(--ink-3)">© 2026 Adhish Nanda · Berlin</div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;showInstallPill&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Hero&quot;}
+}">
+class Component extends DCLogic {
+  state = { narrow: false, roomForCard: true, cvOpen: false, menuOpen: false, caseOpen: false, copied: false };
+
+  componentDidMount() {
+    this._measure = (w) => {
+      const width = w || document.documentElement.clientWidth || window.innerWidth;
+      const n = width < 790;
+      const room = width >= 950;
+      if (n !== this.state.narrow || room !== this.state.roomForCard) {
+        this.setState({ narrow: n, roomForCard: room, cvOpen: false, menuOpen: false, caseOpen: false });
+      }
+    };
+    this._resize = () => this._measure();
+    this._measure();
+    requestAnimationFrame(() => this._measure());
+    if (typeof ResizeObserver !== 'undefined') {
+      this._ro = new ResizeObserver((entries) => {
+        const cr = entries[0] && entries[0].contentRect;
+        this._measure(cr && cr.width);
+      });
+      this._ro.observe(document.documentElement);
+    }
+    window.addEventListener('resize', this._resize);
+    this._away = () => {
+      if (this.state.cvOpen || this.state.menuOpen || this.state.caseOpen) this.setState({ cvOpen: false, menuOpen: false, caseOpen: false });
+    };
+    document.addEventListener('click', this._away);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this._resize);
+    if (this._ro) this._ro.disconnect();
+    document.removeEventListener('click', this._away);
+    clearTimeout(this._t);
+  }
+
+  renderVals() {
+    const s = this.state;
+    return {
+      on: true,
+      wide: !s.narrow,
+      showCard: s.roomForCard,
+      workCols: s.narrow ? '1fr' : '200px minmax(180px,1fr) minmax(0,1.5fr) 140px',
+      thumbAr: s.narrow ? '16/9' : '4/5',
+      narrow: s.narrow,
+      cvOpen: s.cvOpen,
+      menuOpen: s.menuOpen,
+      caseOpen: s.caseOpen,
+      cloneSigil: s.copied ? '✓' : '$',
+      endMotion: () => {
+        clearTimeout(window.__heroMotion);
+        document.documentElement.classList.remove('motion-pending');
+      },
+      showInstallPill: this.props.showInstallPill ?? true,
+      toggleCv: (e) => { e.stopPropagation(); this.setState({ cvOpen: !s.cvOpen, menuOpen: false, caseOpen: false }); },
+      toggleMenu: (e) => { e.stopPropagation(); this.setState({ menuOpen: !s.menuOpen, cvOpen: false, caseOpen: false }); },
+      toggleCase: (e) => { e.stopPropagation(); this.setState({ caseOpen: !s.caseOpen, cvOpen: false, menuOpen: false }); },
+      copyClone: (e) => {
+        e.stopPropagation();
+        const cmd = 'git clone github.com/adhishnanda/cost-aware-governance-rag';
+        if (navigator.clipboard) navigator.clipboard.writeText(cmd).catch(() => {});
+        this.setState({ copied: true });
+        clearTimeout(this._t);
+        this._t = setTimeout(() => this.setState({ copied: false }), 1200);
+      }
+    };
+  }
+}
+</script>
+<script>
+(function(){
+  function apply(){
+    var v = document.getElementById('hero-media');
+    if (!v) return false;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { v.pause(); v.removeAttribute('autoplay'); }
+    return true;
+  }
+  if (!apply()) document.addEventListener('DOMContentLoaded', apply);
+  var t = setInterval(function(){ if (apply()) clearInterval(t); }, 200);
+  setTimeout(function(){ clearInterval(t); }, 4000);
+})();
+</script>
+</body>
+</html>

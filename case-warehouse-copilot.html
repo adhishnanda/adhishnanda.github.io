@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Warehouse Analytics Copilot — Case Study | Adhish Nanda</title>
+<meta name="description" content="Agentic text-to-SQL copilot over a governed semantic layer. Hybrid retrieval, SQL guardrails, self-correction, 88% execution accuracy on a 50-question golden set.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Warehouse Analytics Copilot — Case Study | Adhish Nanda">
+<meta property="og:description" content="Agentic text-to-SQL copilot over a governed semantic layer. Hybrid retrieval, SQL guardrails, self-correction, 88% execution accuracy on a 50-question golden set.">
+<meta property="og:url" content="https://adhishnanda.github.io/case-warehouse-copilot.html">
+<meta property="og:site_name" content="Adhish Nanda">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2712%27 fill=%27%23000000%27/%3E%3Ctext x=%2732%27 y=%2744%27 font-family=%27Arial Narrow,sans-serif%27 font-size=%2736%27 font-weight=%27600%27 fill=%27%23d8c7a3%27 text-anchor=%27middle%27%3EAN%3C/text%3E%3C/svg%3E">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@variable&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --font-display: "Bricolage Grotesque", Arial Narrow, sans-serif;
+    --font-ui: "Satoshi", Arial, sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
+
+    --bg: #000000;
+    --ink: #ffffff;
+    --ink-2: rgba(226, 229, 228, .84);
+    --ink-3: rgba(229, 229, 230, .62);
+    --hair: rgba(255, 255, 255, .13);
+    --hair-strong: rgba(255, 255, 255, .21);
+    --glass-a: rgba(24, 22, 20, .80);
+    --glass-b: rgba(5, 12, 14, .86);
+    --accent: #d8c7a3;
+  }
+  html, body { margin: 0; padding: 0; background: var(--bg); }
+  body { font-family: var(--font-ui); font-weight: 350; font-size: 17px; line-height: 1.55; color: var(--ink-2); -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+  a { color: var(--ink); text-decoration: none; }
+  a:hover { color: var(--ink); }
+  ::selection { background: rgba(216,199,163,0.28); color: #fff; }
+
+  /* responsive */
+  @media (max-width: 900px) {
+    :root { --case-cols: 1fr; --side-pos: static; --stat-cols: repeat(2,1fr); }
+  }
+  @media (max-width: 560px) {
+    :root { --stat-cols: 1fr; --tbl-min: 480px; }
+  }
+</style>
+</helmet>
+
+<div style="background:var(--bg);color:var(--ink);min-height:100vh;font-family:var(--font-ui)">
+
+  <div style="position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(0,0,0,0.78);border-bottom:1px solid var(--hair)">
+    <div style="max-width:1180px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:32px">
+      <a href="./index.html" style="display:flex;align-items:center;gap:9px;color:#FFFFFF;font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;font-size:16px">
+        <span style="width:9px;height:9px;border-radius:50%;background:#ffffff"></span>
+        Adhish Nanda
+      </a>
+      <div style="font-family:var(--font-ui);font-size:12px;color:rgba(255,255,255,.42)">/ case-study / warehouse-analytics-copilot</div>
+      <div style="flex:1"></div>
+      <a href="./index.html" style="font-weight:430;font-size:16px;letter-spacing:-0.36px;color:var(--ink-3)" style-hover="color:#FFFFFF">← Back to portfolio</a>
+    </div>
+  </div>
+
+  <div style="max-width:1180px;margin:0 auto;padding:0 28px;display:grid;grid-template-columns:var(--case-cols,200px minmax(0,1fr));gap:56px;align-items:start">
+
+    <div style="position:var(--side-pos,sticky);top:96px;padding:56px 0 0">
+      <div style="font-family:var(--font-ui);font-weight:420;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,.42)">On this page</div>
+      <div style="margin-top:16px;display:grid;gap:11px;font-size:13.5px">
+        <a href="#problem" style="color:var(--ink-3)" style-hover="color:#FFFFFF">The problem</a>
+        <a href="#architecture" style="color:var(--ink-3)" style-hover="color:#FFFFFF">Architecture</a>
+        <a href="#retrieval" style="color:var(--ink-3)" style-hover="color:#FFFFFF">Retrieval</a>
+        <a href="#guardrails" style="color:var(--ink-3)" style-hover="color:#FFFFFF">Guardrails</a>
+        <a href="#evaluation" style="color:var(--ink-3)" style-hover="color:#FFFFFF">Evaluation</a>
+        <a href="#change" style="color:var(--ink-3)" style-hover="color:#FFFFFF">What I would change</a>
+        <a href="#stack" style="color:var(--ink-3)" style-hover="color:#FFFFFF">Stack</a>
+      </div>
+      <div style="margin-top:28px;padding-top:20px;border-top:1px solid var(--hair);display:grid;gap:9px;font-size:13.5px">
+        <a href="https://github.com/adhishnanda/warehouse-analytics-copilot" target="_blank" rel="noopener" style="color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px">Repository →</a>
+      </div>
+    </div>
+
+    <div style="padding:56px 0 0;max-width:760px">
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px">
+        <span style="font-family:var(--font-ui);font-weight:420;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#000000;background:#ffffff;border-radius:4px;padding:3px 8px">LLM Zoomcamp capstone</span>
+        <span style="font-family:var(--font-ui);font-size:11.5px;color:var(--ink-3)">2026</span>
+      </div>
+
+      <h1 style="margin:20px 0 0;font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;font-size:clamp(32px,4.4vw,52px);line-height:1.02;color:#FFFFFF">A text-to-SQL agent that only trusts what the warehouse documents say</h1>
+      <p style="margin:20px 0 0;font-size:18px;line-height:1.62;color:var(--ink-2);max-width:60ch;text-wrap:pretty">
+        An agentic copilot that translates natural-language questions into SQL, grounded in a governed YAML semantic layer so it uses documented metric definitions rather than inventing its own.
+      </p>
+
+      <div style="margin-top:36px;display:grid;grid-template-columns:var(--stat-cols,repeat(4,1fr));gap:1px;background:rgba(255,255,255,0.08);border:1px solid var(--hair);border-radius:12px;overflow:hidden">
+        <div style="background:#0A0A0A;padding:20px">
+          <div style="font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;font-size:24px;color:var(--accent)">88%</div>
+          <div style="margin-top:4px;font-size:12.5px;color:var(--ink-3)">SQL execution accuracy (production)</div>
+        </div>
+        <div style="background:#0A0A0A;padding:20px">
+          <div style="font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;font-size:24px;color:var(--accent)">1.000</div>
+          <div style="margin-top:4px;font-size:12.5px;color:var(--ink-3)">retrieval hit rate @ k=5</div>
+        </div>
+        <div style="background:#0A0A0A;padding:20px">
+          <div style="font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;font-size:24px;color:var(--accent)">305</div>
+          <div style="margin-top:4px;font-size:12.5px;color:var(--ink-3)">automated tests passing</div>
+        </div>
+        <div style="background:#0A0A0A;padding:20px">
+          <div style="font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;font-size:24px;color:var(--accent)">50</div>
+          <div style="margin-top:4px;font-size:12.5px;color:var(--ink-3)">golden evaluation questions</div>
+        </div>
+      </div>
+
+      <div id="problem" style="padding-top:60px;scroll-margin-top:88px">
+        <h2 style="margin:0;font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;font-size:26px;color:#FFFFFF">The problem</h2>
+        <p style="margin:16px 0 0;font-size:16px;line-height:1.72;color:var(--ink-2)">
+          Business analysts ask questions about warehouse data in plain language. A naive text-to-SQL system generates SQL from the table schema alone, but it has no way to know that "average order value" means total revenue divided by order count at the order grain, not the average of line-item revenues. Without access to documented metric definitions, even a strong model like gpt-4o-mini gets metric-definition questions right only 50% of the time.
+        </p>
+        <p style="margin:16px 0 0;font-size:16px;line-height:1.72;color:var(--ink-2)">
+          The copilot asked whether grounding SQL generation in a governed semantic layer, with retrieval, guardrails, and a retry loop, could close that gap.
+        </p>
+      </div>
+
+      <div id="architecture" style="padding-top:60px;scroll-margin-top:88px">
+        <h2 style="margin:0;font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;font-size:26px;color:#FFFFFF">Architecture</h2>
+        <div style="margin-top:24px;border:1px solid var(--hair);border-radius:14px;background:#070707;padding:28px">
+          <div style="display:grid;gap:12px">
+            <div style="border:1px solid var(--hair);border-radius:10px;padding:14px 16px;background:rgba(255,255,255,0.02)">
+              <div style="font-family:var(--font-ui);font-weight:420;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,.42)">user question</div>
+              <div style="margin-top:6px;font-size:14px;color:var(--ink-2)">natural language</div>
+            </div>
+            <div style="display:grid;place-items:center;color:rgba(255,255,255,.28);font-size:14px">↓</div>
+            <div style="border:1px solid var(--hair-strong);border-radius:10px;padding:14px 16px;background:rgba(255,255,255,0.05)">
+              <div style="font-family:var(--font-ui);font-weight:420;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#ffffff">hybrid retrieval</div>
+              <div style="margin-top:6px;font-size:14px;color:var(--ink-2)">keyword + vector + reranker over YAML semantic layer</div>
+            </div>
+            <div style="display:grid;place-items:center;color:rgba(255,255,255,.28);font-size:14px">↓</div>
+            <div style="border:1px solid var(--hair);border-radius:10px;padding:14px 16px;background:rgba(255,255,255,0.02)">
+              <div style="font-family:var(--font-ui);font-weight:420;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,.42)">schema-grounded prompt</div>
+              <div style="margin-top:6px;font-size:14px;color:var(--ink-2)">retrieved table docs + metric definitions</div>
+            </div>
+            <div style="display:grid;place-items:center;color:rgba(255,255,255,.28);font-size:14px">↓</div>
+            <div style="border:1px solid var(--hair);border-radius:10px;padding:14px 16px;background:rgba(255,255,255,0.02)">
+              <div style="font-family:var(--font-ui);font-weight:420;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,.42)">LLM generates SQL</div>
+              <div style="margin-top:6px;font-size:14px;color:var(--ink-2)">gpt-4o-mini or llama3</div>
+            </div>
+            <div style="display:grid;place-items:center;color:rgba(255,255,255,.28);font-size:14px">↓</div>
+            <div style="border:1px solid var(--hair);border-radius:10px;padding:14px 16px;background:rgba(255,255,255,0.02)">
+              <div style="font-family:var(--font-ui);font-weight:420;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,.42)">guardrails</div>
+              <div style="margin-top:6px;font-size:14px;color:var(--ink-2)">SELECT-only · row limit · timeout</div>
+            </div>
+            <div style="display:grid;place-items:center;color:rgba(255,255,255,.28);font-size:14px">↓</div>
+            <div style="border:1px solid var(--hair);border-radius:10px;padding:14px 16px;background:rgba(255,255,255,0.02)">
+              <div style="font-family:var(--font-ui);font-weight:420;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,.42)">execute on DuckDB</div>
+              <div style="margin-top:6px;font-size:14px;color:var(--ink-2)">TPC-H schema, read-only</div>
+            </div>
+            <div style="display:grid;place-items:center;color:rgba(255,255,255,.28);font-size:14px">↓</div>
+            <div style="border:1px solid var(--hair);border-radius:10px;padding:14px 16px;background:rgba(255,255,255,0.02)">
+              <div style="font-family:var(--font-ui);font-weight:420;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,.42)">validate result</div>
+              <div style="margin-top:6px;font-size:14px;color:var(--ink-2)">retry loop (max 2 attempts) if execution fails</div>
+            </div>
+            <div style="display:grid;place-items:center;color:rgba(255,255,255,.28);font-size:14px">↓</div>
+            <div style="border:1px solid var(--hair);border-radius:10px;padding:14px 16px;background:rgba(255,255,255,0.02)">
+              <div style="font-family:var(--font-ui);font-weight:420;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,.42)">return answer</div>
+              <div style="margin-top:6px;font-size:14px;color:var(--ink-2)">answer + generated SQL + telemetry logged via dlt</div>
+            </div>
+          </div>
+        </div>
+        <p style="margin:24px 0 0;font-size:16px;line-height:1.72;color:var(--ink-2)">
+          The agent receives a natural-language question, retrieves relevant table documentation from a YAML semantic layer using hybrid retrieval with reranking, then builds a schema-grounded prompt so the LLM generates SQL only from retrieved definitions. The generated SQL passes through guardrails (SELECT-only enforcement, row limit, timeout) before executing on a read-only DuckDB warehouse loaded with TPC-H data. If execution fails, a validate-and-retry loop attempts correction up to twice. Every query, its generated SQL, execution result, and latency are logged via dlt for monitoring.
+        </p>
+      </div>
+
+      <div id="retrieval" style="padding-top:60px;scroll-margin-top:88px">
+        <h2 style="margin:0;font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;font-size:26px;color:#FFFFFF">Retrieval</h2>
+        <p style="margin:16px 0 0;font-size:16px;line-height:1.72;color:var(--ink-2)">
+          The semantic layer is defined in YAML files documenting each table's columns, relationships, and metric formulas. The retrieval pipeline finds the right table documentation for each question using four approaches, evaluated on the 50-question golden set at k=5:
+        </p>
+        <div style="margin-top:24px;border:1px solid var(--hair);border-radius:14px;background:#0A0A0A;overflow:hidden">
+          <div style="display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr) minmax(0,1fr);min-width:var(--tbl-min,0);gap:0;padding:12px 20px;border-bottom:1px solid var(--hair);font-family:var(--font-ui);font-weight:420;font-size:11.5px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,.42)">
+            <div>Approach</div>
+            <div style="text-align:right">Hit rate</div>
+            <div style="text-align:right">MRR</div>
+          </div>
+          <div style="display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr) minmax(0,1fr);min-width:var(--tbl-min,0);padding:14px 20px;border-bottom:1px solid var(--hair);font-size:14.5px;color:var(--ink-2)">
+            <div>Keyword only</div>
+            <div style="text-align:right;font-family:var(--font-mono);font-size:13.5px">0.980</div>
+            <div style="text-align:right;font-family:var(--font-mono);font-size:13.5px">0.697</div>
+          </div>
+          <div style="display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr) minmax(0,1fr);min-width:var(--tbl-min,0);padding:14px 20px;border-bottom:1px solid var(--hair);font-size:14.5px;color:var(--ink-2)">
+            <div>Vector only</div>
+            <div style="text-align:right;font-family:var(--font-mono);font-size:13.5px">0.960</div>
+            <div style="text-align:right;font-family:var(--font-mono);font-size:13.5px">0.751</div>
+          </div>
+          <div style="display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr) minmax(0,1fr);min-width:var(--tbl-min,0);padding:14px 20px;border-bottom:1px solid var(--hair);font-size:14.5px;color:var(--ink-2)">
+            <div>Hybrid</div>
+            <div style="text-align:right;font-family:var(--font-mono);font-size:13.5px">1.000</div>
+            <div style="text-align:right;font-family:var(--font-mono);font-size:13.5px">0.741</div>
+          </div>
+          <div style="display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr) minmax(0,1fr);min-width:var(--tbl-min,0);padding:14px 20px;background:rgba(255,255,255,0.04);font-size:14.5px;color:#FFFFFF">
+            <div style="font-weight:460">Hybrid + rerank (production)</div>
+            <div style="text-align:right;font-family:var(--font-mono);font-size:13.5px;color:var(--accent)">1.000</div>
+            <div style="text-align:right;font-family:var(--font-mono);font-size:13.5px;color:var(--accent)">0.758</div>
+          </div>
+        </div>
+        <p style="margin:20px 0 0;font-size:16px;line-height:1.72;color:var(--ink-2)">
+          The production pipeline uses hybrid retrieval with reranking: perfect hit rate and the highest MRR. No question fails to retrieve the correct table documentation.
+        </p>
+      </div>
+
+      <div id="guardrails" style="padding-top:60px;scroll-margin-top:88px">
+        <h2 style="margin:0;font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;font-size:26px;color:#FFFFFF">Guardrails</h2>
+        <p style="margin:16px 0 0;font-size:16px;line-height:1.72;color:var(--ink-2)">
+          Every generated SQL statement passes through four checks before execution:
+        </p>
+        <div style="margin-top:24px;display:grid;gap:1px;background:rgba(255,255,255,0.08);border:1px solid var(--hair);border-radius:14px;overflow:hidden">
+          <div style="background:#0A0A0A;padding:18px 20px">
+            <div style="font-family:var(--font-ui);font-weight:460;font-size:14.5px;color:#FFFFFF">SELECT-only enforcement</div>
+            <p style="margin:6px 0 0;font-size:15px;line-height:1.65;color:var(--ink-2)">Any statement that is not a pure SELECT query is rejected.</p>
+          </div>
+          <div style="background:#0A0A0A;padding:18px 20px">
+            <div style="font-family:var(--font-ui);font-weight:460;font-size:14.5px;color:#FFFFFF">Row limit</div>
+            <p style="margin:6px 0 0;font-size:15px;line-height:1.65;color:var(--ink-2)">Results are capped to prevent runaway queries.</p>
+          </div>
+          <div style="background:#0A0A0A;padding:18px 20px">
+            <div style="font-family:var(--font-ui);font-weight:460;font-size:14.5px;color:#FFFFFF">Timeout</div>
+            <p style="margin:6px 0 0;font-size:15px;line-height:1.65;color:var(--ink-2)">Queries that exceed a time limit are killed.</p>
+          </div>
+          <div style="background:#0A0A0A;padding:18px 20px">
+            <div style="font-family:var(--font-ui);font-weight:460;font-size:14.5px;color:#FFFFFF">Validate-and-retry loop</div>
+            <p style="margin:6px 0 0;font-size:15px;line-height:1.65;color:var(--ink-2)">If execution fails (syntax error, invalid column), the error message is fed back to the LLM for a second attempt (max 2 total). On the golden set, self-correction lifted accuracy from 84.0% to 86.0%, rescuing 1 of 4 triggered retries with zero regressions.</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="evaluation" style="padding-top:60px;scroll-margin-top:88px">
+        <h2 style="margin:0;font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;font-size:26px;color:#FFFFFF">Evaluation</h2>
+        <p style="margin:16px 0 0;font-size:16px;line-height:1.72;color:var(--ink-2)">
+          All evaluation was run against a 50-question golden set (20 Tier-1 single-table aggregations, 20 Tier-2 joins and time filters, 10 Tier-3 metric-definition questions), with every reference result executed against the actual warehouse.
+        </p>
+        <div style="margin-top:24px;border:1px solid var(--hair);border-radius:14px;background:#0A0A0A;overflow:hidden">
+          <div style="display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1.4fr) minmax(0,1fr);min-width:var(--tbl-min,0);padding:12px 20px;border-bottom:1px solid var(--hair);font-family:var(--font-ui);font-weight:420;font-size:11.5px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,.42)">
+            <div>Model</div>
+            <div>Prompt</div>
+            <div style="text-align:right">Execution accuracy</div>
+          </div>
+          <div style="display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1.4fr) minmax(0,1fr);min-width:var(--tbl-min,0);padding:14px 20px;border-bottom:1px solid var(--hair);font-size:14.5px;color:var(--ink-2)">
+            <div>llama3 (local, free)</div>
+            <div>baseline</div>
+            <div style="text-align:right;font-family:var(--font-mono);font-size:13.5px">34.0%</div>
+          </div>
+          <div style="display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1.4fr) minmax(0,1fr);min-width:var(--tbl-min,0);padding:14px 20px;border-bottom:1px solid var(--hair);font-size:14.5px;color:var(--ink-2)">
+            <div>llama3 (local, free)</div>
+            <div>schema-grounded</div>
+            <div style="text-align:right;font-family:var(--font-mono);font-size:13.5px">60.0%</div>
+          </div>
+          <div style="display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1.4fr) minmax(0,1fr);min-width:var(--tbl-min,0);padding:14px 20px;border-bottom:1px solid var(--hair);font-size:14.5px;color:var(--ink-2)">
+            <div>gpt-4o-mini (paid)</div>
+            <div>baseline</div>
+            <div style="text-align:right;font-family:var(--font-mono);font-size:13.5px">62.0%</div>
+          </div>
+          <div style="display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1.4fr) minmax(0,1fr);min-width:var(--tbl-min,0);padding:14px 20px;background:rgba(255,255,255,0.04);font-size:14.5px;color:#FFFFFF">
+            <div style="font-weight:460">gpt-4o-mini (paid)</div>
+            <div style="font-weight:460">schema-grounded (production)</div>
+            <div style="text-align:right;font-family:var(--font-mono);font-size:13.5px;color:var(--accent)">88.0%</div>
+          </div>
+        </div>
+        <p style="margin:20px 0 0;font-size:16px;line-height:1.72;color:var(--ink-2)">
+          Schema-grounded prompting with retrieved table docs nearly tripled llama3's accuracy (34% to 60%) and lifted gpt-4o-mini from 62% to 88%.
+        </p>
+
+        <h3 style="margin:40px 0 0;font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;font-size:20px;color:#FFFFFF">Tier-3 ablation: the headline result</h3>
+        <p style="margin:14px 0 0;font-size:16px;line-height:1.72;color:var(--ink-2)">
+          The 10 Tier-3 questions test metric definitions, the hardest category. This is the project's central finding:
+        </p>
+        <div style="margin-top:24px;border:1px solid var(--hair);border-radius:14px;background:#0A0A0A;overflow:hidden">
+          <div style="display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr);min-width:var(--tbl-min,0);padding:12px 20px;border-bottom:1px solid var(--hair);font-family:var(--font-ui);font-weight:420;font-size:11.5px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,.42)">
+            <div>Model</div>
+            <div style="text-align:right">Retrieval disabled</div>
+            <div style="text-align:right">Retrieval enabled</div>
+          </div>
+          <div style="display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr);min-width:var(--tbl-min,0);padding:14px 20px;border-bottom:1px solid var(--hair);font-size:14.5px;color:var(--ink-2)">
+            <div>llama3 (free)</div>
+            <div style="text-align:right;font-family:var(--font-mono);font-size:13.5px">30.0%</div>
+            <div style="text-align:right;font-family:var(--font-mono);font-size:13.5px;color:var(--accent)">80.0%</div>
+          </div>
+          <div style="display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr);min-width:var(--tbl-min,0);padding:14px 20px;font-size:14.5px;color:var(--ink-2)">
+            <div>gpt-4o-mini (paid)</div>
+            <div style="text-align:right;font-family:var(--font-mono);font-size:13.5px">50.0%</div>
+            <div style="text-align:right;font-family:var(--font-mono);font-size:13.5px;color:var(--accent)">100.0%</div>
+          </div>
+        </div>
+        <p style="margin:20px 0 0;font-size:16px;line-height:1.72;color:var(--ink-2)">
+          Without retrieval, gpt-4o-mini reinvents average_order_value as AVG(net_revenue) over line items (wrong grain: TPC-H orders average approximately 4 line items each). With retrieval, it uses the documented formula from the semantic layer and hits 100% on all 10 metric-definition questions.
+        </p>
+      </div>
+
+      <div id="change" style="padding-top:60px;scroll-margin-top:88px">
+        <h2 style="margin:0;font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;font-size:26px;color:#FFFFFF">What I would change</h2>
+        <p style="margin:16px 0 0;font-size:16px;line-height:1.72;color:var(--ink-2)">
+          I would test with a larger golden set covering more edge cases (CTEs, window functions, nested subqueries). I would add a confidence score so the agent can flag low-confidence answers rather than presenting every result equally. And I would benchmark against newer open-weight models to reduce dependence on a paid API.
+        </p>
+      </div>
+
+      <div id="stack" style="padding-top:60px;scroll-margin-top:88px">
+        <h2 style="margin:0;font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;font-size:26px;color:#FFFFFF">Stack</h2>
+        <div style="margin-top:20px;display:flex;flex-wrap:wrap;gap:8px">
+          <span style="font-family:var(--font-ui);font-size:12px;color:var(--ink-3);border:1px solid var(--hair);border-radius:6px;padding:5px 10px">Python</span>
+          <span style="font-family:var(--font-ui);font-size:12px;color:var(--ink-3);border:1px solid var(--hair);border-radius:6px;padding:5px 10px">FastAPI</span>
+          <span style="font-family:var(--font-ui);font-size:12px;color:var(--ink-3);border:1px solid var(--hair);border-radius:6px;padding:5px 10px">DuckDB</span>
+          <span style="font-family:var(--font-ui);font-size:12px;color:var(--ink-3);border:1px solid var(--hair);border-radius:6px;padding:5px 10px">React</span>
+          <span style="font-family:var(--font-ui);font-size:12px;color:var(--ink-3);border:1px solid var(--hair);border-radius:6px;padding:5px 10px">TypeScript</span>
+          <span style="font-family:var(--font-ui);font-size:12px;color:var(--ink-3);border:1px solid var(--hair);border-radius:6px;padding:5px 10px">Kestra</span>
+          <span style="font-family:var(--font-ui);font-size:12px;color:var(--ink-3);border:1px solid var(--hair);border-radius:6px;padding:5px 10px">dlt</span>
+          <span style="font-family:var(--font-ui);font-size:12px;color:var(--ink-3);border:1px solid var(--hair);border-radius:6px;padding:5px 10px">pytest</span>
+        </div>
+      </div>
+
+      <div style="margin-top:64px;padding:32px;border:1px solid var(--hair);border-radius:16px;background:#0A0A0A;display:flex;flex-wrap:wrap;align-items:center;gap:20px">
+        <div style="flex:1;min-width:240px">
+          <div style="font-family:var(--font-display);font-variation-settings:'wdth' 80;font-weight:500;letter-spacing:-0.01em;font-size:20px;color:#FFFFFF">See the evaluation and the code</div>
+          <p style="margin:8px 0 0;font-size:14.5px;line-height:1.6;color:var(--ink-2)">The repository has the full evaluation suite, the 50-question golden set, retrieval and ablation reports, and the semantic layer definitions.</p>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px">
+          <a href="mailto:adhish.nanda@gmail.com" style="display:flex;align-items:center;gap:8px;background:#ffffff;border:1px solid #ffffff;border-radius:9px;padding:12px 20px;font-weight:460;font-size:14px;color:#000000" style-hover="background:rgba(226,229,228,.84);color:#000000">Email me <span style="font-size:15px">→</span></a>
+          <a href="https://github.com/adhishnanda/warehouse-analytics-copilot" target="_blank" rel="noopener" style="border:1px solid var(--hair-strong);border-radius:9px;padding:12px 18px;font-size:14px;color:var(--ink-2);background:rgba(255,255,255,0.03)" style-hover="border-color:rgba(255,255,255,.42);color:#FFFFFF">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:96px;border-top:1px solid var(--hair);background:#050505">
+    <div style="max-width:1180px;margin:0 auto;padding:36px 28px;display:flex;flex-wrap:wrap;align-items:center;gap:20px;font-size:13px;color:var(--ink-3)">
+      <div>© 2026 Adhish Nanda · Berlin · v2026.08</div>
+      <div style="flex:1"></div>
+      <a href="./index.html" style="color:var(--ink-3)" style-hover="color:#FFFFFF">← Back to portfolio</a>
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>
